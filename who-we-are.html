@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Who We Are - NorthLite Solar</title>
+    <meta name="description" content="Discover the mission of NorthLite Solar. Bridging the gap between urban and rural energy access with off-grid, agricultural, and clinical solar systems."/>
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" href="assets/images/cropped-site-icon-scaled-1-32x32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="assets/images/cropped-site-icon-scaled-1-180x180.png" />
+    <link rel="icon" href="assets/images/cropped-site-icon-scaled-1-192x192.png" sizes="192x192" />
+    <meta name="msapplication-TileImage" content="assets/images/cropped-site-icon-scaled-1-270x270.png" />
+    
+    <!-- Tailwind CSS with Forms and Container Query plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- Google Icons & Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&family=Montserrat:wght@600;700&display=swap" rel="stylesheet"/>
+    
+    <!-- Custom Style Sheet -->
+    <link href="assets/css/style.css" rel="stylesheet"/>
+    
+    <!-- Tailwind Config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#d6e3ff",
+                        "on-tertiary-fixed": "#001b3d",
+                        "on-primary-fixed-variant": "#5c4300",
+                        "tertiary-fixed-dim": "#a8c8ff",
+                        "primary-fixed": "#ffdf9f",
+                        "inverse-primary": "#f9bd22",
+                        "on-surface": "#191c1e",
+                        "surface-tint": "#795900",
+                        "primary-container": "#fbbf24",
+                        "on-tertiary-container": "#0053a1",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#4f4633",
+                        "surface-container-high": "#e6e8ea",
+                        "eco-growth": "#10B981",
+                        "slate-deep": "#1E293B",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#b8c7e5",
+                        "tertiary": "#005eb5",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#795900",
+                        "surface-container-low": "#f2f4f6",
+                        "background": "#f7f9fb",
+                        "on-primary-container": "#6c4f00",
+                        "secondary": "#515f79",
+                        "surface-variant": "#e0e3e5",
+                        "primary-fixed-dim": "#f9bd22",
+                        "surface": "#f7f9fb",
+                        "secondary-container": "#d2e0ff",
+                        "outline-variant": "#d3c5ac",
+                        "on-tertiary-fixed-variant": "#00468a",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#261a00",
+                        "outline": "#817661",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#394760",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#abc9ff",
+                        "surface-dim": "#d8dadc",
+                        "tertiary-fixed": "#d6e3ff",
+                        "surface-container": "#eceef0",
+                        "on-secondary-fixed": "#0c1c33",
+                        "inverse-on-surface": "#eff1f3",
+                        "solar-energy": "#FF6900",
+                        "on-secondary-container": "#55637e",
+                        "on-background": "#191c1e",
+                        "error": "#ba1a1a",
+                        "pure-white": "#FFFFFF",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f7f9fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "margin-desktop": "48px",
+                        "margin-mobile": "16px",
+                        "base": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-md": ["Montserrat"],
+                        "button": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "body-lg": ["Outfit"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "headline-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "button": ["16px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased pt-[72px] md:pt-[80px]">
+
+    <div id="scroll-progress"></div>
+    <!-- TopNavBar (Shared Component) -->
+    <header id="site-header" class="fixed top-0 w-full z-50 transition-all duration-300 py-4">
+        <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+            <!-- Mobile Menu Toggle -->
+            <button aria-label="Open Navigation Menu" class="md:hidden transition-colors flex items-center justify-center p-1" id="drawer-open-btn">
+                <span class="material-symbols-outlined text-[28px]">menu</span>
+            </button>
+
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center">
+                <img alt="NorthLite Solar Logo" class="brand-logo-img h-9 md:h-10 w-auto transition-all duration-300" src="assets/images/logo.png"/>
+            </a>
+
+            <!-- Desktop Links -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a class="nav-link font-button text-button transition-all duration-300 pb-1 border-b-2 border-transparent" href="index.html">Home</a>
+                <a class="nav-link font-button text-button transition-all duration-300 pb-1 border-b-2 active-link border-current" href="who-we-are.html">Who We Are</a>
+                <a class="nav-link font-button text-button transition-all duration-300 pb-1 border-b-2 border-transparent" href="solutions.html">Solutions</a>
+                <a class="nav-link font-button text-button transition-all duration-300 pb-1 border-b-2 border-transparent" href="services.html">Services</a>
+                <a class="nav-link font-button text-button transition-all duration-300 pb-1 border-b-2 border-transparent" href="contact.html">Contact</a>
+            </nav>
+
+            <!-- CTA Quote Button -->
+            <a href="contact.html#contact-form" class="bg-primary-container text-slate-deep font-button text-[14px] md:text-button px-4 md:px-6 py-2.5 md:py-3 rounded-lg hover-scale active:scale-95 transition-transform text-center shadow-sm btn-magnetic">
+                Get a Quote
+            </a>
+        </div>
+    </header>
+
+    <!-- Navigation Drawer Overlay (Mobile Menu) -->
+    <div hidden class="fixed inset-0 bg-slate-deep/50 backdrop-blur-sm z-[59] opacity-0 pointer-events-none transition-opacity duration-300 md:hidden" id="drawer-overlay"></div>
+    
+    <!-- Navigation Drawer (Mobile) -->
+    <div hidden class="fixed left-0 top-0 h-full w-80 rounded-r-2xl z-[60] bg-surface shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col p-6 md:hidden" id="nav-drawer">
+        <div class="flex justify-between items-center mb-8 border-b border-outline-variant/20 pb-4">
+            <img alt="NorthLite Solar" class="h-8 w-auto" src="assets/images/logo.png"/>
+            <button aria-label="Close Navigation Menu" class="text-secondary hover:bg-surface-container-high rounded-full p-2 transition-colors flex items-center justify-center" id="drawer-close-btn">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        
+        <nav class="flex flex-col gap-3 mb-6">
+            <a class="flex items-center gap-4 px-4 py-3 rounded-xl transition-colors drawer-link-stagger text-secondary hover:bg-surface-container" style="animation-delay: 50ms;" href="index.html">
+                <span class="material-symbols-outlined">home</span>
+                <span class="font-button text-button">Home</span>
+            </a>
+            <a class="flex items-center gap-4 px-4 py-3 rounded-xl transition-colors drawer-link-stagger bg-primary-container/20 text-primary font-bold" style="animation-delay: 100ms;" href="who-we-are.html">
+                <span class="material-symbols-outlined">group</span>
+                <span class="font-button text-button">Who We Are</span>
+            </a>
+            <a class="flex items-center gap-4 px-4 py-3 rounded-xl transition-colors drawer-link-stagger text-secondary hover:bg-surface-container" style="animation-delay: 150ms;" href="solutions.html">
+                <span class="material-symbols-outlined">schema</span>
+                <span class="font-button text-button">Solutions</span>
+            </a>
+            <a class="flex items-center gap-4 px-4 py-3 rounded-xl transition-colors drawer-link-stagger text-secondary hover:bg-surface-container" style="animation-delay: 200ms;" href="services.html">
+                <span class="material-symbols-outlined">settings_suggest</span>
+                <span class="font-button text-button">Services</span>
+            </a>
+            <a class="flex items-center gap-4 px-4 py-3 rounded-xl transition-colors drawer-link-stagger text-secondary hover:bg-surface-container" style="animation-delay: 250ms;" href="contact.html">
+                <span class="material-symbols-outlined">chat</span>
+                <span class="font-button text-button">Contact</span>
+            </a>
+        </nav>
+
+        <div class="border-t border-outline-variant/20 pt-6">
+            <h4 class="font-label-caps text-label-caps text-secondary mb-4 uppercase tracking-wider">SOLUTIONS QUICK LINKS</h4>
+            <div class="flex flex-col gap-2">
+                <a class="flex items-center gap-3 px-4 py-2 rounded-lg text-secondary hover:bg-surface-container text-sm" href="solutions.html?tab=on-grid">
+                    <span class="material-symbols-outlined text-[18px]">solar_power</span>
+                    <span>On-Grid Systems</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-2 rounded-lg text-secondary hover:bg-surface-container text-sm" href="solutions.html?tab=off-grid">
+                    <span class="material-symbols-outlined text-[18px]">battery_charging_full</span>
+                    <span>Off-Grid Systems</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-2 rounded-lg text-secondary hover:bg-surface-container text-sm" href="solutions.html?tab=zero-invest">
+                    <span class="material-symbols-outlined text-[18px]">trending_down</span>
+                    <span>Zero Investment</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-2 rounded-lg text-secondary hover:bg-surface-container text-sm" href="solutions.html?tab=commercial">
+                    <span class="material-symbols-outlined text-[18px]">business</span>
+                    <span>Commercial Scale</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main class="py-[60px] md:py-[80px]">
+        
+        <!-- Hero Image Banner -->
+        <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-16 reveal">
+            <div class="relative w-full h-[40vh] md:h-[60vh] rounded-2xl overflow-hidden shadow-lg border border-outline-variant/30">
+                <img alt="Solar Power Grid Hero Image" class="absolute inset-0 w-full h-full object-cover" src="assets/images/ENGINEERING-scaled.jpg.jpeg"/>
+                <div class="absolute inset-0 bg-slate-deep/50 flex items-center justify-center p-6 md:p-8">
+                    <h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-pure-white text-center max-w-4xl drop-shadow-md leading-tight">
+                        Bridging the gap between urban and rural energy access
+                    </h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- CEO Mission Statement & Quote -->
+        <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24 reveal">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+                <div class="col-span-12 md:col-span-10 md:col-start-2">
+                    <blockquote class="text-center bg-pure-white rounded-2xl p-8 md:p-12 border border-surface-variant shadow-[0px_4px_20px_rgba(50,64,89,0.03)]">
+                        <span class="material-symbols-outlined text-solar-energy text-5xl mb-4 opacity-50 block" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+                        <p class="font-headline-md text-[20px] md:text-headline-md text-slate-deep mb-8 italic leading-relaxed">
+                            "Our mission is not just about installing panels; it's about igniting potential. By delivering reliable energy to every corner of West Africa, we are empowering businesses, saving lives in clinics, and growing sustainable agricultural communities."
+                        </p>
+                        <footer class="font-body-md text-body-md text-secondary">
+                            <strong class="text-slate-deep text-lg block mb-1">Frank Adabre Akasoba</strong>
+                            CEO, NorthLite Solar Limited
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specialized Divisions Section -->
+        <section id="divisions" class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-16">
+            <div class="mb-16 text-center reveal">
+                <h2 class="font-headline-lg text-headline-lg text-slate-deep mb-4">Specialized Divisions</h2>
+                <p class="font-body-lg text-body-lg text-secondary max-w-2xl mx-auto">Tailored energy solutions designed by our engineering division to meet the unique challenges of our region.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                <!-- Division 1 -->
+                <div class="bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(50,64,89,0.05)] border border-outline-variant/30 hover-scale overflow-hidden reveal delay-100 flex flex-col h-full spotlight-card">
+                    <div class="h-48 overflow-hidden">
+                        <img alt="Decentralized microgrid install" class="w-full h-full object-cover" src="assets/images/homepage.jpg.jpeg"/>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-primary text-2xl">home_work</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-slate-deep mb-4 text-[22px]">Off-Grid Franchise</h3>
+                        <p class="font-body-md text-body-md text-secondary mb-6 flex-grow">
+                            Empowering rural communities with decentralized, reliable micro-grids. We provide complete setup, training, and maintenance for sustainable local energy economies.
+                        </p>
+                        <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant border-t border-outline-variant/20 pt-4 mt-auto">
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-eco-growth text-[20px]">check_circle</span>
+                                <span>Community Micro-Grids</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-eco-growth text-[20px]">check_circle</span>
+                                <span>Local Technician Training</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Division 2 -->
+                <div class="bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(50,64,89,0.05)] border border-outline-variant/30 hover-scale overflow-hidden reveal delay-200 flex flex-col h-full spotlight-card">
+                    <div class="h-48 overflow-hidden">
+                        <img alt="Solar-powered agricultural utility" class="w-full h-full object-cover" src="assets/images/IMG_0108-scaled.jpg.jpeg"/>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="w-12 h-12 rounded-full bg-eco-growth/10 flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-eco-growth text-2xl">agriculture</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-slate-deep mb-4 text-[22px]">Agricultural Support</h3>
+                        <p class="font-body-md text-body-md text-secondary mb-6 flex-grow">
+                            Driving food security through solar-powered irrigation and processing. Our systems reduce reliance on expensive diesel generators, boosting farm profitability.
+                        </p>
+                        <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant border-t border-outline-variant/20 pt-4 mt-auto">
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                <span>Solar Water Pumps</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                <span>Cold Storage Solutions</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Division 3 -->
+                <div class="bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(50,64,89,0.05)] border border-outline-variant/30 hover-scale overflow-hidden reveal delay-300 flex flex-col h-full spotlight-card">
+                    <div class="h-48 overflow-hidden">
+                        <img alt="Healthcare clinic solar backup" class="w-full h-full object-cover" src="assets/images/d1ba0c7e-5961-48e8-a714-2032249efd33.jpg.jpeg"/>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="w-12 h-12 rounded-full bg-tertiary/10 flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-tertiary text-2xl">local_hospital</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-slate-deep mb-4 text-[22px]">Clinical Utility</h3>
+                        <p class="font-body-md text-body-md text-secondary mb-6 flex-grow">
+                            Ensuring critical healthcare services never go dark. We deploy robust backup and primary solar systems for clinics and hospitals across the region.
+                        </p>
+                        <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant border-t border-outline-variant/20 pt-4 mt-auto">
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+                                <span>Uninterruptible Power (UPS)</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+                                <span>Vaccine Cold Chain Support</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet Our Team Section -->
+        <section id="team" class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24 reveal">
+            <div class="mb-16 text-center">
+                <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-3 block">Meet Our Leaders</span>
+                <h2 class="font-headline-lg text-headline-lg text-slate-deep mb-4">The Team Behind the Transition</h2>
+                <p class="font-body-lg text-body-lg text-secondary max-w-2xl mx-auto">An interdisciplinary team of clean energy engineers, infrastructure specialists, and regional developers working to power West Africa's future.</p>
+            </div>
+            
+            <!-- Executive Spotlight (Row of 2 columns on desktop) -->
+            <div class="mb-16">
+                <h3 class="font-headline-md text-slate-deep mb-8 text-[20px] border-b border-outline-variant/30 pb-3 flex items-center gap-2">
+                    <span class="w-1.5 h-6 bg-primary-container rounded-full block"></span>
+                    Executive Directors
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                    <!-- Executive 1: Frank -->
+                    <div class="bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(50,64,89,0.04)] border border-outline-variant/30 hover-scale overflow-hidden flex flex-col h-full spotlight-card">
+                        <div class="aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                            <img alt="Frank Adabre Akasoba - Chief Executive Officer" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105" src="assets/images/team_ceo.png"/>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <div class="mb-4">
+                                <h4 class="font-headline-md text-slate-deep text-[22px] font-bold">Frank Adabre Akasoba</h4>
+                                <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest text-[11px] font-semibold">Chief Executive Officer</span>
+                            </div>
+                            <p class="font-body-md text-body-md text-secondary leading-relaxed mb-6 flex-grow">
+                                A visionary renewable energy expert with nearly two decades of infrastructure engineering and off-grid project deployment experience. Frank leads NorthLite Solar's expansion across West Africa, driving off-grid franchise entrepreneurship and commercial integrations.
+                            </p>
+                            <div class="flex gap-3 border-t border-outline-variant/20 pt-4 mt-auto">
+                                <a href="https://www.linkedin.com/company/northlite-solar-limited/" target="_blank" class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-primary-container/20 flex items-center justify-center text-secondary hover:text-primary transition-colors" aria-label="LinkedIn profile">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Executive 2: Celina -->
+                    <div class="bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(50,64,89,0.04)] border border-outline-variant/30 hover-scale overflow-hidden flex flex-col h-full spotlight-card">
+                        <div class="aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                            <img alt="Celina Nyaaba - Managing Partner" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105" src="assets/images/celina.png"/>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <div class="mb-4">
+                                <h4 class="font-headline-md text-slate-deep text-[22px] font-bold">Celina Nyaaba</h4>
+                                <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest text-[11px] font-semibold">Managing Partner</span>
+                            </div>
+                            <p class="font-body-md text-body-md text-secondary leading-relaxed mb-6 flex-grow">
+                                Co-founder and Managing Partner overseeing strategic operations, legal structures, and community partnership frameworks. Celina has pioneered several rural electrification campaigns and women-led energy distribution projects.
+                            </p>
+                            <div class="flex gap-3 border-t border-outline-variant/20 pt-4 mt-auto">
+                                <a href="https://www.linkedin.com/company/northlite-solar-limited/" target="_blank" class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-primary-container/20 flex items-center justify-center text-secondary hover:text-primary transition-colors" aria-label="LinkedIn profile">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Management & Field Operations (Grid of 3 columns) -->
+            <div>
+                <h3 class="font-headline-md text-slate-deep mb-8 text-[20px] border-b border-outline-variant/30 pb-3 flex items-center gap-2">
+                    <span class="w-1.5 h-6 bg-primary-container rounded-full block"></span>
+                    Management &amp; Operations
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+                    <!-- Member 3: Evans -->
+                    <div class="bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(50,64,89,0.04)] border border-outline-variant/30 hover-scale overflow-hidden flex flex-col h-full spotlight-card">
+                        <div class="aspect-[4/3] w-full overflow-hidden bg-slate-100">
+                            <img alt="Evans Akelentera Nsopika - Finance Manager" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105" src="assets/images/team_evans.png"/>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <div class="mb-4">
+                                <h4 class="font-headline-md text-slate-deep text-[18px] font-bold">Evans Akelentera Nsopika</h4>
+                                <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest text-[10px] font-semibold">Finance Manager</span>
+                            </div>
+                            <p class="font-body-md text-body-md text-secondary leading-relaxed mb-6 flex-grow">
+                                An experienced corporate treasurer specializing in structured project finance, solar power purchase agreements (PPAs), and green energy micro-credit systems that lower adoption barriers.
+                            </p>
+                            <div class="flex gap-3 border-t border-outline-variant/20 pt-4 mt-auto">
+                                <a href="https://www.linkedin.com/company/northlite-solar-limited/" target="_blank" class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-primary-container/20 flex items-center justify-center text-secondary hover:text-primary transition-colors" aria-label="LinkedIn profile">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Member 4: Liberty -->
+                    <div class="bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(50,64,89,0.04)] border border-outline-variant/30 hover-scale overflow-hidden flex flex-col h-full spotlight-card">
+                        <div class="aspect-[4/3] w-full overflow-hidden bg-slate-100">
+                            <img alt="Liberty Anafo - Portfolio Manager" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105" src="assets/images/team_liberty.png"/>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <div class="mb-4">
+                                <h4 class="font-headline-md text-slate-deep text-[18px] font-bold">Liberty Anafo</h4>
+                                <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest text-[10px] font-semibold">Portfolio Manager</span>
+                            </div>
+                            <p class="font-body-md text-body-md text-secondary leading-relaxed mb-6 flex-grow">
+                                Oversees asset performance across commercial, industrial, and rural franchise installations. Liberty monitors grid load profiles, energy outputs, and ensures optimal return on solar assets.
+                            </p>
+                            <div class="flex gap-3 border-t border-outline-variant/20 pt-4 mt-auto">
+                                <a href="https://www.linkedin.com/company/northlite-solar-limited/" target="_blank" class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-primary-container/20 flex items-center justify-center text-secondary hover:text-primary transition-colors" aria-label="LinkedIn profile">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Member 5: Jacob -->
+                    <div class="bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(50,64,89,0.04)] border border-outline-variant/30 hover-scale overflow-hidden flex flex-col h-full spotlight-card">
+                        <div class="aspect-[4/3] w-full overflow-hidden bg-slate-100">
+                            <img alt="Jacob Owusu Junior - Project Manager" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105" src="assets/images/team_jacob.png"/>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <div class="mb-4">
+                                <h4 class="font-headline-md text-slate-deep text-[18px] font-bold">Jacob Owusu Junior</h4>
+                                <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest text-[10px] font-semibold">Project Manager</span>
+                            </div>
+                            <p class="font-body-md text-body-md text-secondary leading-relaxed mb-6 flex-grow">
+                                Leads engineering, procurement, and construction (EPC) workflows in the field. Jacob coordinates engineering blueprints, materials supply chains, and commissioning timelines.
+                            </p>
+                            <div class="flex gap-3 border-t border-outline-variant/20 pt-4 mt-auto">
+                                <a href="https://www.linkedin.com/company/northlite-solar-limited/" target="_blank" class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-primary-container/20 flex items-center justify-center text-secondary hover:text-primary transition-colors" aria-label="LinkedIn profile">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Member 6: Natarsha -->
+                    <div class="bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(50,64,89,0.04)] border border-outline-variant/30 hover-scale overflow-hidden flex flex-col h-full spotlight-card">
+                        <div class="aspect-[4/3] w-full overflow-hidden bg-slate-100">
+                            <img alt="Nsomah Natarsha - Human &amp; International Relations Manager" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105" src="assets/images/team_natarsha.png"/>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <div class="mb-4">
+                                <h4 class="font-headline-md text-slate-deep text-[18px] font-bold">Nsomah Natarsha</h4>
+                                <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest text-[10px] font-semibold">Human &amp; International Relations Manager</span>
+                            </div>
+                            <p class="font-body-md text-body-md text-secondary leading-relaxed mb-6 flex-grow">
+                                Manages organizational development, talent acquisition, and strategic relationships with international green investment partners and non-profit stakeholders.
+                            </p>
+                            <div class="flex gap-3 border-t border-outline-variant/20 pt-4 mt-auto">
+                                <a href="https://www.linkedin.com/company/northlite-solar-limited/" target="_blank" class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-primary-container/20 flex items-center justify-center text-secondary hover:text-primary transition-colors" aria-label="LinkedIn profile">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Member 7: Lawrencia -->
+                    <div class="bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(50,64,89,0.04)] border border-outline-variant/30 hover-scale overflow-hidden flex flex-col h-full spotlight-card">
+                        <div class="aspect-[4/3] w-full overflow-hidden bg-slate-100">
+                            <img alt="Lawrencia Asangalisa - Administrator &amp; Compliance Manager" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105" src="assets/images/team_lawrencia.png"/>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <div class="mb-4">
+                                <h4 class="font-headline-md text-slate-deep text-[18px] font-bold">Lawrencia Asangalisa</h4>
+                                <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest text-[10px] font-semibold">Admin &amp; Compliance Manager</span>
+                            </div>
+                            <p class="font-body-md text-body-md text-secondary leading-relaxed mb-6 flex-grow">
+                                Ensures compliance with all international safety certifications, environmental regulations, and corporate legal standards across all NorthLite operations.
+                            </p>
+                            <div class="flex gap-3 border-t border-outline-variant/20 pt-4 mt-auto">
+                                <a href="https://www.linkedin.com/company/northlite-solar-limited/" target="_blank" class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-primary-container/20 flex items-center justify-center text-secondary hover:text-primary transition-colors" aria-label="LinkedIn profile">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Member 8: Modesta -->
+                    <div class="bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(50,64,89,0.04)] border border-outline-variant/30 hover-scale overflow-hidden flex flex-col h-full spotlight-card">
+                        <div class="aspect-[4/3] w-full overflow-hidden bg-slate-100">
+                            <img alt="Amoah Modesta - Lead Operations &amp; Maintenance Officer" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105" src="assets/images/team_modesta.jpg"/>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <div class="mb-4">
+                                <h4 class="font-headline-md text-slate-deep text-[18px] font-bold">Amoah Modesta</h4>
+                                <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest text-[10px] font-semibold">Lead Operations &amp; Maintenance Officer</span>
+                            </div>
+                            <p class="font-body-md text-body-md text-secondary leading-relaxed mb-6 flex-grow">
+                                Directs field support, preventative maintenance schedules, and rapid-response repair crews, guaranteeing maximum power uptime for client solar grids.
+                            </p>
+                            <div class="flex gap-3 border-t border-outline-variant/20 pt-4 mt-auto">
+                                <a href="https://www.linkedin.com/company/northlite-solar-limited/" target="_blank" class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-primary-container/20 flex items-center justify-center text-secondary hover:text-primary transition-colors" aria-label="LinkedIn profile">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Member 9: Lynna -->
+                    <div class="bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(50,64,89,0.04)] border border-outline-variant/30 hover-scale overflow-hidden flex flex-col h-full spotlight-card">
+                        <div class="aspect-[4/3] w-full overflow-hidden bg-slate-100">
+                            <img alt="Lynna Nsomabilla - Customer Relations Manager" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105" src="assets/images/team_lynna.jpg"/>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <div class="mb-4">
+                                <h4 class="font-headline-md text-slate-deep text-[18px] font-bold">Lynna Nsomabilla</h4>
+                                <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest text-[10px] font-semibold">Customer Relations Manager</span>
+                            </div>
+                            <p class="font-body-md text-body-md text-secondary leading-relaxed mb-6 flex-grow">
+                                Manages customer onboarding, franchise support networks, and ensures high satisfaction rates across residential and commercial accounts.
+                            </p>
+                            <div class="flex gap-3 border-t border-outline-variant/20 pt-4 mt-auto">
+                                <a href="https://www.linkedin.com/company/northlite-solar-limited/" target="_blank" class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-primary-container/20 flex items-center justify-center text-secondary hover:text-primary transition-colors" aria-label="LinkedIn profile">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Member 10: Ismael -->
+                    <div class="bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(50,64,89,0.04)] border border-outline-variant/30 hover-scale overflow-hidden flex flex-col h-full spotlight-card">
+                        <div class="aspect-[4/3] w-full overflow-hidden bg-slate-100">
+                            <img alt="Awuma Ismeal - Assistant Operations &amp; Maintenance Officer" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105" src="assets/images/team_ismael.png"/>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <div class="mb-4">
+                                <h4 class="font-headline-md text-slate-deep text-[18px] font-bold">Awuma Ismeal</h4>
+                                <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest text-[10px] font-semibold">Assistant Operations &amp; Maintenance Officer</span>
+                            </div>
+                            <p class="font-body-md text-body-md text-secondary leading-relaxed mb-6 flex-grow">
+                                Provides technical field support, real-time diagnostic checks, and preventative maintenance services to commercial and community arrays.
+                            </p>
+                            <div class="flex gap-3 border-t border-outline-variant/20 pt-4 mt-auto">
+                                <a href="https://www.linkedin.com/company/northlite-solar-limited/" target="_blank" class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-primary-container/20 flex items-center justify-center text-secondary hover:text-primary transition-colors" aria-label="LinkedIn profile">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Dynamic Footer Placement -->
+    <!-- Footer (Shared Component) -->
+    <footer class="relative w-full py-section-gap bg-gradient-to-b from-[#1e293b] via-[#151d2a] to-[#0f172a] text-pure-white mt-auto border-t border-outline-variant/10 before:absolute before:top-0 before:left-0 before:right-0 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary-container/30 before:to-transparent">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-16">
+            <!-- Column 1: Brand Profile -->
+            <div class="flex flex-col items-start">
+                <img alt="NorthLite Solar" class="h-10 w-auto mb-6 brightness-0 invert transition-transform duration-300 hover:scale-105" src="assets/images/logo.png"/>
+                <p class="font-body-md text-body-md text-surface-variant/80 max-w-xs mb-6 leading-relaxed">
+                    High-performance solar infrastructure designed for optimal resilience and efficiency, driving sustainable growth across West Africa.
+                </p>
+                <!-- Social Channels with micro-animations -->
+                <div class="flex gap-4">
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-10 h-10 rounded-xl bg-slate-800/80 hover:bg-primary-container/20 flex items-center justify-center text-pure-white hover:text-primary-container transition-all duration-300 border border-slate-700/50 hover:border-primary-container/30 hover:-translate-y-1 transform">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-10 h-10 rounded-xl bg-slate-800/80 hover:bg-primary-container/20 flex items-center justify-center text-pure-white hover:text-primary-container transition-all duration-300 border border-slate-700/50 hover:border-primary-container/30 hover:-translate-y-1 transform">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter (X)" class="w-10 h-10 rounded-xl bg-slate-800/80 hover:bg-primary-container/20 flex items-center justify-center text-pure-white hover:text-primary-container transition-all duration-300 border border-slate-700/50 hover:border-primary-container/30 hover:-translate-y-1 transform">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Column 2: Navigation Links -->
+            <div class="mt-8 md:mt-0">
+                <h4 class="font-button text-primary-container text-xs tracking-[0.2em] uppercase font-bold mb-6">Company</h4>
+                <ul class="space-y-4">
+                    <li>
+                        <a class="group flex items-center font-body-md text-body-md text-surface-variant/70 hover:text-primary-container transition-all duration-300" href="index.html">
+                            <span class="material-symbols-outlined text-[16px] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 mr-2 text-primary-container">arrow_forward</span>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="group flex items-center font-body-md text-body-md text-surface-variant/70 hover:text-primary-container transition-all duration-300" href="who-we-are.html">
+                            <span class="material-symbols-outlined text-[16px] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 mr-2 text-primary-container">arrow_forward</span>
+                            <span>Who We Are</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="group flex items-center font-body-md text-body-md text-surface-variant/70 hover:text-primary-container transition-all duration-300" href="solutions.html">
+                            <span class="material-symbols-outlined text-[16px] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 mr-2 text-primary-container">arrow_forward</span>
+                            <span>Solutions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="group flex items-center font-body-md text-body-md text-surface-variant/70 hover:text-primary-container transition-all duration-300" href="services.html">
+                            <span class="material-symbols-outlined text-[16px] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 mr-2 text-primary-container">arrow_forward</span>
+                            <span>Services</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="group flex items-center font-body-md text-body-md text-surface-variant/70 hover:text-primary-container transition-all duration-300" href="contact.html">
+                            <span class="material-symbols-outlined text-[16px] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 mr-2 text-primary-container">arrow_forward</span>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Solutions Directory -->
+            <div class="mt-8 lg:mt-0">
+                <h4 class="font-button text-primary-container text-xs tracking-[0.2em] uppercase font-bold mb-6">Solutions</h4>
+                <ul class="space-y-4">
+                    <li>
+                        <a class="group flex items-center font-body-md text-body-md text-surface-variant/70 hover:text-primary-container transition-all duration-300" href="solutions.html?tab=on-grid">
+                            <span class="material-symbols-outlined text-[16px] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 mr-2 text-primary-container">arrow_forward</span>
+                            <span>On-Grid Systems</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="group flex items-center font-body-md text-body-md text-surface-variant/70 hover:text-primary-container transition-all duration-300" href="solutions.html?tab=off-grid">
+                            <span class="material-symbols-outlined text-[16px] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 mr-2 text-primary-container">arrow_forward</span>
+                            <span>Off-Grid Systems</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="group flex items-center font-body-md text-body-md text-surface-variant/70 hover:text-primary-container transition-all duration-300" href="solutions.html?tab=zero-invest">
+                            <span class="material-symbols-outlined text-[16px] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 mr-2 text-primary-container">arrow_forward</span>
+                            <span>Zero Investment</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="group flex items-center font-body-md text-body-md text-surface-variant/70 hover:text-primary-container transition-all duration-300" href="solutions.html?tab=commercial">
+                            <span class="material-symbols-outlined text-[16px] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 mr-2 text-primary-container">arrow_forward</span>
+                            <span>Commercial Scale</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Detailed HQ & Contacts -->
+            <div class="mt-8 lg:mt-0">
+                <h4 class="font-button text-primary-container text-xs tracking-[0.2em] uppercase font-bold mb-6">Contact &amp; HQ</h4>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="material-symbols-outlined text-[20px] text-primary-container mr-3 mt-0.5" style="font-variation-settings: 'FILL' 1;">mail</span>
+                        <div>
+                            <span class="block text-[10px] text-surface-variant/40 uppercase tracking-wider font-semibold mb-0.5">Email</span>
+                            <a href="mailto:care@northlitesolar.com" class="font-body-md text-body-md text-surface-variant/80 hover:text-primary-container transition-colors">care@northlitesolar.com</a>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="material-symbols-outlined text-[20px] text-primary-container mr-3 mt-0.5" style="font-variation-settings: 'FILL' 1;">phone</span>
+                        <div>
+                            <span class="block text-[10px] text-surface-variant/40 uppercase tracking-wider font-semibold mb-0.5">Phone</span>
+                            <a href="tel:+233208288648" class="font-body-md text-body-md text-surface-variant/80 hover:text-primary-container transition-colors">Tel: +233 (0) 20 8288 648</a>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="material-symbols-outlined text-[20px] text-primary-container mr-3 mt-0.5" style="font-variation-settings: 'FILL' 1;">call</span>
+                        <div>
+                            <span class="block text-[10px] text-surface-variant/40 uppercase tracking-wider font-semibold mb-0.5">Sales</span>
+                            <a href="tel:+233207000477" class="font-body-md text-body-md text-surface-variant/80 hover:text-primary-container transition-colors">Sales: +233 (0) 20 7000477</a>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="material-symbols-outlined text-[20px] text-primary-container mr-3 mt-0.5" style="font-variation-settings: 'FILL' 1;">location_on</span>
+                        <div>
+                            <span class="block text-[10px] text-surface-variant/40 uppercase tracking-wider font-semibold mb-0.5">Head Office</span>
+                            <span class="font-body-md text-body-md text-surface-variant/80 leading-relaxed">Plot 57, Water-aid Avenue Bolga-Bawku Road Kumbosigo Bolgatanga East, Upper East Region</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="material-symbols-outlined text-[20px] text-primary-container mr-3 mt-0.5" style="font-variation-settings: 'FILL' 1;">location_city</span>
+                        <div>
+                            <span class="block text-[10px] text-surface-variant/40 uppercase tracking-wider font-semibold mb-0.5">Project Office</span>
+                            <span class="font-body-md text-body-md text-surface-variant/80 leading-relaxed">1 Airport Square - 8th Floor STE -011, Accra, Ghana-West Africa</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Copyright and Fine Links Bar -->
+        <div class="border-t border-outline/10 pt-8 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex flex-col items-center md:items-start gap-1">
+                <p class="font-body-md text-body-md text-surface-variant/60 text-sm text-center md:text-left">
+                    &copy; 2026 NorthLite Solar Limited. All rights reserved. | Design &amp; Developed by ABK Digital
+                </p>
+                <p class="font-body-md text-body-md text-surface-variant/40 text-xs text-center md:text-left">
+                    High-Performance Solar Infrastructure for Africa.
+                </p>
+            </div>
+            <div class="flex gap-6 mt-2 md:mt-0">
+                <a href="#" class="font-body-md text-body-md text-surface-variant/60 hover:text-primary-container text-xs transition-colors duration-300">Privacy Policy</a>
+                <a href="#" class="font-body-md text-body-md text-surface-variant/60 hover:text-primary-container text-xs transition-colors duration-300">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Common Site Script -->
+    <script src="assets/js/common.js"></script>
+</body>
+</html>

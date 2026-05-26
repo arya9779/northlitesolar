@@ -1,0 +1,11 @@
+{
+  "name": "northlitesolar",
+  "version": "1.0.0",
+  "description": "NorthLite Solar website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server -c-1 -p 8080"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
