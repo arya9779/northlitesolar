@@ -1,0 +1,205 @@
+---
+layout: "base.njk"
+---
+
+<!-- Hero Section (Fullscreen 16:9 responsive slideshow) -->
+<section class="relative w-full h-screen min-h-[600px] flex items-center bg-slate-deep overflow-hidden">
+    <!-- Interactive Slideshow Backdrop -->
+    <div id="hero-slideshow" class="absolute inset-0 z-0">
+        {% for bg in hero.bg_images %}
+        <div class="hero-slide opacity-0 {% if loop.first %}active-slide opacity-100{% endif %}">
+            <img alt="Slide {{ loop.index }}" class="w-full h-full object-cover hero-zoom" src="{{ bg.image }}"/>
+        </div>
+        {% endfor %}
+        <!-- Vignette & Gradient Overlays for Readability -->
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-deep/90 via-slate-deep/50 to-transparent z-10"></div>
+        <div class="absolute inset-0 bg-radial-vignette z-10 pointer-events-none"></div>
+    </div>
+
+    <div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full grid grid-cols-12 gap-gutter pt-20 md:pt-28 pb-12">
+        <div class="col-span-12 md:col-span-8 lg:col-span-7 reveal">
+            <h1 class="font-display-lg text-4xl md:text-5xl lg:text-[64px] text-pure-white mb-6 leading-tight">{{ hero.heading }}</h1>
+            <p class="font-body-lg text-body-lg text-secondary-fixed-dim mb-10 max-w-2xl">{{ hero.subheading }}</p>
+            <div class="flex flex-wrap gap-4">
+                <a href="/solutions" class="bg-primary-container text-slate-deep font-button text-button px-8 py-4 rounded-lg hover-scale flex items-center space-x-2 shadow-md btn-magnetic">
+                    <span>Explore Solutions</span>
+                    <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                </a>
+                <a href="/contact" class="bg-transparent border-2 border-primary-container text-primary-container font-button text-button px-8 py-4 rounded-lg hover:bg-primary-container/10 transition-colors text-center btn-magnetic">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Story Section -->
+<section class="py-20 px-margin-mobile md:px-margin-desktop bg-surface-bright relative z-20 mt-12 mx-margin-mobile md:mx-margin-desktop rounded-2xl reveal">
+    <div class="max-w-container-max mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-3 block">Our Story</span>
+                <h2 class="font-headline-lg text-headline-lg text-slate-deep mb-6 leading-tight">{{ story.heading }}</h2>
+                <div class="font-body-md text-body-md text-secondary space-y-4">
+                    {{ story.body | safe }}
+                </div>
+            </div>
+            <div class="relative overflow-hidden rounded-2xl shadow-xl h-[400px]">
+                <img src="/assets/images/IMG_0108-scaled.jpg.jpeg" alt="North Lite Solar Story" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Us Section (Value Pillars) -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface reveal">
+    <div class="max-w-container-max mx-auto">
+        <div class="text-center mb-16">
+            <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-3 block">Why Choose NorthLite</span>
+            <h2 class="font-headline-lg text-headline-lg text-slate-deep mb-6">{{ why_us.heading }}</h2>
+        </div>
+        
+        <!-- Value Pillars Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for pillar in why_us.pillars %}
+            <div class="bg-pure-white rounded-2xl p-8 border border-surface-variant shadow-sm hover:shadow-md transition-shadow hover-scale flex flex-col justify-start">
+                <div class="w-12 h-12 bg-primary-container/20 rounded-lg flex items-center justify-center text-primary mb-6">
+                    <span class="material-symbols-outlined text-[28px]">{{ pillar.icon }}</span>
+                </div>
+                <h3 class="font-headline-md text-xl text-slate-deep mb-3 font-bold">{{ pillar.title }}</h3>
+                <p class="text-secondary">{{ pillar.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="py-20 px-margin-mobile md:px-margin-desktop bg-surface-container-low reveal" id="services">
+    <div class="max-w-container-max mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="font-headline-lg text-headline-lg text-slate-deep mb-4">Our Solutions</h2>
+            <p class="font-body-md text-body-md text-secondary max-w-2xl mx-auto">Delivering high-efficiency engineering and infrastructure designs across commercial, industrial, and residential sectors.</p>
+        </div>
+        
+        <div class="space-y-16">
+            {% for service in services %}
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center {% if loop.index0 % 2 != 0 %}lg:flex-row-reverse{% endif %}">
+                <div class="{% if loop.index0 % 2 != 0 %}lg:order-2{% endif %}">
+                    <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-3 block">{{ service.tagline }}</span>
+                    <h3 class="font-headline-lg text-3xl text-slate-deep mb-6">{{ service.title }}</h3>
+                    <div class="font-body-md text-body-md text-secondary prose max-w-none">
+                        {{ service.description | safe }}
+                    </div>
+                </div>
+                {% if service.image %}
+                <div class="relative overflow-hidden rounded-2xl group shadow-md h-[400px] {% if loop.index0 % 2 != 0 %}lg:order-1{% endif %} hover-scale">
+                    <img alt="{{ service.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="{{ service.image }}"/>
+                </div>
+                {% else %}
+                <div class="bg-primary-container/10 rounded-2xl h-[400px] flex items-center justify-center {% if loop.index0 % 2 != 0 %}lg:order-1{% endif %}">
+                    <span class="material-symbols-outlined text-6xl text-primary/30">solar_power</span>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Impact & Foundation Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface reveal">
+    <div class="max-w-container-max mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="bg-pure-white p-10 rounded-3xl border border-surface-variant shadow-md">
+                <span class="material-symbols-outlined text-eco-growth text-5xl mb-6">eco</span>
+                <h3 class="font-headline-lg text-3xl text-slate-deep mb-4">{{ impact.heading }}</h3>
+                <div class="font-body-md text-secondary prose max-w-none">
+                    {{ impact.body | safe }}
+                </div>
+            </div>
+            <div class="bg-primary-container p-10 rounded-3xl shadow-md text-slate-deep">
+                <span class="material-symbols-outlined text-slate-deep text-5xl mb-6">volunteer_activism</span>
+                <span class="font-label-caps text-sm uppercase tracking-widest mb-2 block font-bold">North Lite Foundation (Future Initiative)</span>
+                <h3 class="font-headline-lg text-3xl mb-4">{{ foundation.heading }}</h3>
+                <div class="font-body-md prose max-w-none prose-p:text-slate-deep prose-li:text-slate-deep">
+                    {{ foundation.body | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footprints Section -->
+<section class="py-20 px-margin-mobile md:px-margin-desktop bg-slate-deep text-pure-white reveal">
+    <div class="max-w-container-max mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="font-headline-lg text-headline-lg text-pure-white mb-4">Our Growing Global Presence</h2>
+            <p class="font-body-md text-body-md text-secondary-fixed-dim max-w-2xl mx-auto">From Ghana to the United States</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="border border-white/10 p-8 rounded-2xl bg-white/5 backdrop-blur">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <img src="https://flagcdn.com/w40/gh.png" alt="Ghana Flag" class="w-8 h-auto rounded-sm"> Ghana
+                </h3>
+                <ul class="space-y-4 text-white/80">
+                    {% for item in footprints.ghana_points %}
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary-container text-xl">check_circle</span>
+                        {{ item }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="border border-white/10 p-8 rounded-2xl bg-white/5 backdrop-blur">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <img src="https://flagcdn.com/w40/us.png" alt="US Flag" class="w-8 h-auto rounded-sm"> United States
+                </h3>
+                <ul class="space-y-4 text-white/80">
+                    {% for item in footprints.us_points %}
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary-container text-xl">check_circle</span>
+                        {{ item }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-20 px-margin-mobile md:px-margin-desktop bg-surface reveal">
+    <div class="max-w-container-max mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="font-headline-lg text-headline-lg text-slate-deep mb-4">Trusted Through Experience</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {% for review in testimonials %}
+            <div class="bg-white p-8 rounded-2xl border border-surface-variant shadow-sm relative">
+                <span class="material-symbols-outlined text-6xl text-primary/10 absolute top-4 left-4">format_quote</span>
+                <p class="text-lg text-slate-deep italic relative z-10 font-medium leading-relaxed">"{{ review.quote }}"</p>
+                {% if review.author %}
+                <p class="mt-4 font-bold text-primary">{{ review.author }}</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-primary text-pure-white reveal text-center">
+    <div class="max-w-3xl mx-auto">
+        <h2 class="font-headline-lg text-4xl md:text-5xl font-bold mb-6">{{ cta.heading }}</h2>
+        <p class="text-xl mb-10 text-white/90">{{ cta.body }}</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="/contact" class="bg-slate-deep text-pure-white font-button text-button px-8 py-4 rounded-lg hover-scale shadow-md btn-magnetic">
+                Contact Us
+            </a>
+            <a href="/contact#consultation" class="bg-transparent border-2 border-slate-deep text-slate-deep font-button text-button px-8 py-4 rounded-lg hover:bg-slate-deep hover:text-pure-white transition-colors btn-magnetic">
+                Book a Consultation
+            </a>
+        </div>
+    </div>
+</section>

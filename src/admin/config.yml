@@ -1,0 +1,76 @@
+backend:
+  name: git-gateway
+  branch: main
+local_backend: true
+
+media_folder: "src/assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "src/index.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "string"}
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Subheading", name: "subheading", widget: "string"}
+              - {label: "Body", name: "body", widget: "text"}
+              - {label: "Background Images", name: "bg_images", widget: "list", field: {label: "Image", name: "image", widget: "image"}}
+          - label: "Our Story"
+            name: "story"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Body", name: "body", widget: "markdown"}
+          - label: "Why North Lite Solar"
+            name: "why_us"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Pillars", name: "pillars", widget: "list", fields: [{label: "Title", name: "title", widget: "string"}, {label: "Description", name: "description", widget: "string"}, {label: "Icon", name: "icon", widget: "string"}]}
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Description", name: "description", widget: "markdown"}
+              - {label: "Image", name: "image", widget: "image", required: false}
+          - label: "Impact"
+            name: "impact"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Body", name: "body", widget: "markdown"}
+          - label: "Nonprofit Foundation"
+            name: "foundation"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Body", name: "body", widget: "markdown"}
+          - label: "Footprints"
+            name: "footprints"
+            widget: "object"
+            fields:
+              - {label: "Ghana Points", name: "ghana_points", widget: "list"}
+              - {label: "US Points", name: "us_points", widget: "list"}
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - {label: "Quote", name: "quote", widget: "text"}
+              - {label: "Author", name: "author", widget: "string", required: false}
+          - label: "Final CTA"
+            name: "cta"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Body", name: "body", widget: "string"}

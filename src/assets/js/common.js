@@ -115,7 +115,7 @@ function initScrollEffects() {
     const progressBar = document.getElementById('scroll-progress');
     
     // Add button glow to main primary action elements
-    const primaryCTAs = document.querySelectorAll('a[href*="contact"], button[type="submit"], a[href="solutions.html"]');
+    const primaryCTAs = document.querySelectorAll('a[href*="contact"], button[type="submit"], a[href*="solutions"]');
     primaryCTAs.forEach(btn => {
         if (!btn.classList.contains('bg-transparent')) {
             btn.classList.add('btn-glow');

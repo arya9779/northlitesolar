@@ -26,3 +26,6 @@ logs/
 # Temporary folder
 .gemini/
 impeccable/
+
+# Build folder
+_site/
