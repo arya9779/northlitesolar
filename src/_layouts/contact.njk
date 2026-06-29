@@ -1,0 +1,99 @@
+---
+layout: "base.njk"
+---
+<main class="pt-[72px] md:pt-[80px]">
+
+    <!-- Page Title Header -->
+    <header class="text-center mb-16 max-w-3xl mx-auto reveal">
+        <span class="font-label-caps text-label-caps text-primary uppercase tracking-wider mb-3 block">{{ header.tagline }}</span>
+        <h1 class="font-headline-lg text-headline-lg text-slate-deep mb-4 leading-tight">{{ header.title }}</h1>
+        <p class="font-body-lg text-body-lg text-secondary">{{ header.description }}</p>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+        
+        <!-- Left Column: Contact info & Office Locations -->
+        <div class="lg:col-span-6 flex flex-col gap-8 reveal">
+            
+            <!-- Main Contacts Info Card -->
+            <div class="glass-card border border-outline-variant/30 bg-surface-container-lowest/70 p-8 rounded-3xl flex flex-col shadow-sm spotlight-card">
+                <h2 class="font-headline-md text-slate-deep text-[20px] font-bold mb-6 flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary text-[24px]">contact_support</span>
+                    {{ direct_contact.title }}
+                </h2>
+                
+                <div class="space-y-6">
+                    {% for item in direct_contact.list %}
+                    <a href="{{ item.link }}" class="group flex items-start p-4 bg-background rounded-2xl border border-outline-variant/20 hover:border-primary/30 transition-all duration-300">
+                        <span class="material-symbols-outlined text-primary text-[26px] mr-4 mt-1 group-hover:scale-110 transition-transform">{{ item.icon }}</span>
+                        <div>
+                            <span class="block text-[11px] text-secondary uppercase tracking-wider font-mono font-semibold mb-1">{{ item.label }}</span>
+                            <span class="font-headline-md text-slate-deep text-[16px] font-bold group-hover:text-primary transition-colors">{{ item.value }}</span>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Locations Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {% for loc in locations %}
+                <div class="glass-card border border-outline-variant/30 bg-surface-container-lowest/70 p-6 rounded-2xl flex flex-col gap-2 shadow-sm spotlight-card">
+                    <div class="w-10 h-10 bg-secondary-container rounded-full flex items-center justify-center text-on-tertiary-container mb-2">
+                        <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">{{ loc.icon }}</span>
+                    </div>
+                    <h3 class="font-button text-button text-slate-deep font-bold">{{ loc.title }}</h3>
+                    <p class="font-body-md text-sm text-secondary leading-relaxed">
+                        {{ loc.address | safe }}
+                    </p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Right Column: Interactive Contact Form -->
+        <div class="lg:col-span-6 flex flex-col gap-8 reveal delay-100" id="contact-form">
+            <!-- Form container -->
+            <div class="bg-surface-container-lowest border border-outline-variant/40 shadow-sm rounded-3xl p-8 md:p-10 spotlight-card">
+                <h2 class="font-headline-md text-slate-deep text-[20px] font-bold mb-2">{{ form.title }}</h2>
+                <p class="font-body-md text-body-md text-secondary mb-8">{{ form.description }}</p>
+                
+                <form class="flex flex-col gap-5" id="consultation-form">
+                    <div>
+                        <label for="form-name" class="sr-only">Full Name</label>
+                        <input class="form-input" id="form-name" placeholder="Full Name" type="text" required/>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="form-email" class="sr-only">Email Address</label>
+                            <input class="form-input" id="form-email" placeholder="Email Address" type="email" required/>
+                        </div>
+                        <div>
+                            <label for="form-phone" class="sr-only">Phone Number</label>
+                            <input class="form-input" id="form-phone" placeholder="Phone Number" type="tel" required/>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="form-interest" class="sr-only">Primary Interest</label>
+                        <select class="form-input text-secondary appearance-none cursor-pointer bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23515f79%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_1rem_center] bg-[length:1.2em_1.2em]" id="form-interest" required>
+                            <option value="" disabled selected>Primary Interest</option>
+                            <option value="residential">Residential Solar Solutions</option>
+                            <option value="commercial">Commercial Solar plants</option>
+                            <option value="maintenance">Operations &amp; Maintenance (O&amp;M)</option>
+                            <option value="advisory">Consulting &amp; Advisory</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="form-message" class="sr-only">Message details</label>
+                        <textarea class="form-input resize-none h-32" id="form-message" placeholder="Tell us about your property, average utility bill, or project requirements..." rows="4"></textarea>
+                    </div>
+                    <button class="w-full bg-primary-container text-slate-deep font-button text-button py-4 rounded-lg hover-scale active:scale-95 transition-all duration-300 mt-2 font-bold shadow-md" id="form-submit-btn" type="submit">
+                        {{ form.submit_btn }}
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+
+</main>

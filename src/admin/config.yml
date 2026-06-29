@@ -74,3 +74,201 @@ collections:
             fields:
               - {label: "Heading", name: "heading", widget: "string"}
               - {label: "Body", name: "body", widget: "string"}
+
+      - label: "About Page"
+        name: "about"
+        file: "src/about.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+          - label: "Quote Section"
+            name: "quote"
+            widget: "object"
+            fields:
+              - {label: "Quote Text", name: "text", widget: "text"}
+              - {label: "Author", name: "author", widget: "string"}
+              - {label: "Role", name: "role", widget: "string"}
+          - label: "Specialized Divisions"
+            name: "divisions"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - label: "Divisions List"
+                name: "list"
+                widget: "list"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Image", name: "image", widget: "image"}
+                  - {label: "Icon", name: "icon", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+                  - {label: "Points", name: "points", widget: "list"}
+          - label: "Team Members"
+            name: "team"
+            widget: "object"
+            fields:
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - label: "Executive Directors"
+                name: "executives"
+                widget: "list"
+                fields:
+                  - {label: "Name", name: "name", widget: "string"}
+                  - {label: "Role", name: "role", widget: "string"}
+                  - {label: "Image", name: "image", widget: "image"}
+                  - {label: "Bio", name: "bio", widget: "text"}
+                  - {label: "LinkedIn Link", name: "linkedin", widget: "string", required: false}
+              - label: "Management Team"
+                name: "management"
+                widget: "list"
+                fields:
+                  - {label: "Name", name: "name", widget: "string"}
+                  - {label: "Role", name: "role", widget: "string"}
+                  - {label: "Image", name: "image", widget: "image"}
+                  - {label: "Bio", name: "bio", widget: "text"}
+                  - {label: "LinkedIn Link", name: "linkedin", widget: "string", required: false}
+
+      - label: "Solutions Page"
+        name: "solutions"
+        file: "src/solutions.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Image", name: "image", widget: "image"}
+          - label: "Solutions Switcher"
+            name: "switcher"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string"}
+              - {label: "Section Description", name: "description", widget: "text"}
+              - label: "Tabs"
+                name: "tabs"
+                widget: "list"
+                fields:
+                  - {label: "ID (lowercase, e.g. on-grid)", name: "id", widget: "string"}
+                  - {label: "Tab Name", name: "name", widget: "string"}
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Image", name: "image", widget: "image"}
+                  - {label: "Description", name: "description", widget: "text"}
+                  - {label: "Points List", name: "points", widget: "list", required: false}
+                  - label: "Core Benefits"
+                    name: "benefits"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - {label: "Title", name: "title", widget: "string"}
+                      - {label: "Icon", name: "icon", widget: "string"}
+                      - {label: "Description", name: "description", widget: "text"}
+          - label: "Comprehensive Services"
+            name: "services"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string"}
+              - {label: "Section Description", name: "description", widget: "text"}
+              - label: "Services List"
+                name: "list"
+                widget: "list"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Icon", name: "icon", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+                  - {label: "Image", name: "image", widget: "image", required: false}
+                  - {label: "Is Special Big Card?", name: "special", widget: "boolean", default: false}
+                  - {label: "Special Badge", name: "badge", widget: "string", required: false}
+                  - {label: "Special Status", name: "status", widget: "string", required: false}
+                  - {label: "Special Audit Text", name: "audit", widget: "string", required: false}
+          - label: "Deployment Methodology"
+            name: "timeline"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string"}
+              - {label: "Section Description", name: "description", widget: "text"}
+              - label: "Steps"
+                name: "steps"
+                widget: "list"
+                fields:
+                  - {label: "Number (e.g. 01)", name: "number", widget: "string"}
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Icon", name: "icon", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+                  - {label: "Highlight Step?", name: "highlight", widget: "boolean", default: false}
+
+      - label: "Contact Page"
+        name: "contact"
+        file: "src/contact.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - label: "Header"
+            name: "header"
+            widget: "object"
+            fields:
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+          - label: "Direct Contact"
+            name: "direct_contact"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - label: "Contact Info List"
+                name: "list"
+                widget: "list"
+                fields:
+                  - {label: "Label (e.g. Email Support)", name: "label", widget: "string"}
+                  - {label: "Icon (e.g. mail)", name: "icon", widget: "string"}
+                  - {label: "Value (e.g. care@northlitesolar.com)", name: "value", widget: "string"}
+                  - {label: "Link URL (e.g. mailto:care@northlitesolar.com)", name: "link", widget: "string"}
+          - label: "Office Locations"
+            name: "locations"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Icon", name: "icon", widget: "string"}
+              - {label: "Address (HTML allowed, use <br/>)", name: "address", widget: "text"}
+          - label: "Contact Form Settings"
+            name: "form"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Submit Button Text", name: "submit_btn", widget: "string"}
+
+      - label: "Impact Page"
+        name: "impact"
+        file: "src/impact.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body Content", name: "body", widget: "markdown"}
+
+      - label: "Foundation Page"
+        name: "foundation"
+        file: "src/foundation.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body Content", name: "body", widget: "markdown"}
+
+      - label: "Events Page"
+        name: "events"
+        file: "src/events.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body Content", name: "body", widget: "markdown"}
+
+      - label: "News Page"
+        name: "news"
+        file: "src/news.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body Content", name: "body", widget: "markdown"}

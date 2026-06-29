@@ -1,0 +1,139 @@
+---
+layout: "base.njk"
+---
+<main class="pt-[72px] md:pt-[80px]">
+
+    <!-- Hero Image Banner -->
+    <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-16 reveal">
+        <div class="relative w-full h-[40vh] md:h-[60vh] rounded-2xl overflow-hidden shadow-lg border border-outline-variant/30">
+            <img alt="Solar Power Grid Hero Image" class="absolute inset-0 w-full h-full object-cover" src="{{ hero.image }}"/>
+            <div class="absolute inset-0 bg-slate-deep/50 flex items-center justify-center p-6 md:p-8">
+                <h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-pure-white text-center max-w-4xl drop-shadow-md leading-tight">
+                    {{ hero.title }}
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- CEO Mission Statement & Quote -->
+    <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24 reveal">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+            <div class="col-span-12 md:col-span-10 md:col-start-2">
+                <blockquote class="text-center bg-pure-white rounded-2xl p-8 md:p-12 border border-surface-variant shadow-[0px_4px_20px_rgba(50,64,89,0.03)]">
+                    <span class="material-symbols-outlined text-solar-energy text-5xl mb-4 opacity-50 block" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+                    <p class="font-headline-md text-[20px] md:text-headline-md text-slate-deep mb-8 italic leading-relaxed">
+                        "{{ quote.text }}"
+                    </p>
+                    <footer class="font-body-md text-body-md text-secondary">
+                        <strong class="text-slate-deep text-lg block mb-1">{{ quote.author }}</strong>
+                        {{ quote.role }}
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialized Divisions Section -->
+    <section id="divisions" class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-16">
+        <div class="mb-16 text-center reveal">
+            <h2 class="font-headline-lg text-headline-lg text-slate-deep mb-4">{{ divisions.title }}</h2>
+            <p class="font-body-lg text-body-lg text-secondary max-w-2xl mx-auto">{{ divisions.description }}</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+            {% for div in divisions.list %}
+            <div class="bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(50,64,89,0.05)] border border-outline-variant/30 hover-scale overflow-hidden reveal flex flex-col h-full spotlight-card">
+                <div class="h-48 overflow-hidden">
+                    <img alt="{{ div.title }}" class="w-full h-full object-cover" src="{{ div.image }}"/>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-primary text-2xl">{{ div.icon }}</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-slate-deep mb-4 text-[22px]">{{ div.title }}</h3>
+                    <p class="font-body-md text-body-md text-secondary mb-6 flex-grow">
+                        {{ div.description }}
+                    </p>
+                    <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant border-t border-outline-variant/20 pt-4 mt-auto">
+                        {% for point in div.points %}
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-eco-growth text-[20px]">check_circle</span>
+                            <span>{{ point }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Meet Our Team Section -->
+    <section id="team" class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24 reveal">
+        <div class="mb-16 text-center">
+            <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-3 block">{{ team.tagline }}</span>
+            <h2 class="font-headline-lg text-headline-lg text-slate-deep mb-4">{{ team.title }}</h2>
+            <p class="font-body-lg text-body-lg text-secondary max-w-2xl mx-auto">{{ team.description }}</p>
+        </div>
+        
+        <div class="mb-16">
+            <h3 class="font-headline-md text-slate-deep mb-8 text-[20px] border-b border-outline-variant/30 pb-3 flex items-center gap-2">
+                <span class="w-1.5 h-6 bg-primary-container rounded-full block"></span>
+                Executive Directors
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                {% for member in team.executives %}
+                <div class="bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(50,64,89,0.04)] border border-outline-variant/30 hover-scale overflow-hidden flex flex-col h-full spotlight-card">
+                    <div class="aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                        <img alt="{{ member.name }}" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105" src="{{ member.image }}"/>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="mb-4">
+                            <h4 class="font-headline-md text-slate-deep text-[22px] font-bold">{{ member.name }}</h4>
+                            <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest text-[11px] font-semibold">{{ member.role }}</span>
+                        </div>
+                        <p class="font-body-md text-body-md text-secondary leading-relaxed mb-6 flex-grow">
+                            {{ member.bio }}
+                        </p>
+                        <div class="flex gap-3 border-t border-outline-variant/20 pt-4 mt-auto">
+                            <a href="{{ member.linkedin }}" target="_blank" class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-primary-container/20 flex items-center justify-center text-secondary hover:text-primary transition-colors" aria-label="LinkedIn profile">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div>
+            <h3 class="font-headline-md text-slate-deep mb-8 text-[20px] border-b border-outline-variant/30 pb-3 flex items-center gap-2">
+                <span class="w-1.5 h-6 bg-primary-container rounded-full block"></span>
+                Management Team
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+                {% for member in team.management %}
+                <div class="bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(50,64,89,0.04)] border border-outline-variant/30 hover-scale overflow-hidden flex flex-col h-full spotlight-card">
+                    <div class="aspect-[4/3] w-full overflow-hidden bg-slate-100">
+                        <img alt="{{ member.name }}" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105" src="{{ member.image }}"/>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="mb-4">
+                            <h4 class="font-headline-md text-slate-deep text-[18px] font-bold">{{ member.name }}</h4>
+                            <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest text-[10px] font-semibold">{{ member.role }}</span>
+                        </div>
+                        <p class="font-body-md text-body-md text-secondary leading-relaxed mb-6 flex-grow">
+                            {{ member.bio }}
+                        </p>
+                        <div class="flex gap-3 border-t border-outline-variant/20 pt-4 mt-auto">
+                            <a href="{{ member.linkedin }}" target="_blank" class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-primary-container/20 flex items-center justify-center text-secondary hover:text-primary transition-colors" aria-label="LinkedIn profile">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</main>
