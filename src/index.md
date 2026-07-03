@@ -21,7 +21,7 @@ story:
     Over the years, we've successfully delivered solar energy solutions for commercial facilities, industrial operations, businesses, institutions, and communities across Ghana. Through dedication, technical expertise, and trusted partnerships, we've built a reputation for delivering results that matter.
 
 
-    Today, we're expanding our footprint into the United States—not as a newcomer to renewable energy, but as an experienced company with a proven track record.
+    Today, we're expanding our footprint into the United States, not as a newcomer to renewable energy, but as an experienced company with a proven track record.
 
 
     Our journey reflects the spirit of innovation, resilience, and opportunity. By combining African ingenuity with American opportunity, we're creating new pathways for sustainable energy investment and climate action.
@@ -120,7 +120,7 @@ footprints:
     - "Investment and project financing initiatives"
     - "Community engagement and climate advocacy"
 testimonials:
-  - quote: "North Lite Solar represents the next generation of African renewable energy leadership—combining technical expertise with a commitment to sustainable development."
+  - quote: "North Lite Solar represents the next generation of African renewable energy leadership, combining technical expertise with a commitment to sustainable development."
   - quote: "Their experience delivering real-world energy solutions makes them a valuable partner for organizations seeking long-term impact."
 cta:
   heading: "Ready to Build a Sustainable Future?"

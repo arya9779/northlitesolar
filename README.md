@@ -6,7 +6,7 @@ This platform represents a comprehensive, modern visual and architectural revamp
 
 ---
 
-## 🌟 Architecture & Features
+## Architecture & Features
 
 ### 1. Headless Content Management System (CMS)
 The site is integrated with **Decap CMS** (formerly Netlify CMS). The client can log in to `/admin` to edit all website content without writing any code:
@@ -23,7 +23,7 @@ The site is integrated with **Decap CMS** (formerly Netlify CMS). The client can
 
 ---
 
-## 🛠️ Technical Stack
+## Technical Stack
 
 *   **SSG Framework**: Eleventy (11ty) v3
 *   **Content Formatting**: Markdown (Frontmatter + Liquid/Nunjucks templates)
@@ -32,7 +32,7 @@ The site is integrated with **Decap CMS** (formerly Netlify CMS). The client can
 
 ---
 
-## 🚀 Local Development
+## Local Development
 
 ### 1. Prerequisites
 Make sure you have [Node.js](https://nodejs.org/) installed.
@@ -59,7 +59,7 @@ npm run dev
 
 ---
 
-## ☁️ Production Deployment & CMS Setup
+## Production Deployment & CMS Setup
 
 To deploy the site and enable the CMS for client access, follow these steps:
 

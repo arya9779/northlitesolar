@@ -24,9 +24,9 @@ layout: "base.njk"
         </div>
         
         <!-- Tabs Menu -->
-        <div class="flex flex-wrap justify-center border-b border-outline-variant/30 mb-12 reveal" id="solutions-tabs">
+        <div class="flex overflow-x-auto no-scrollbar whitespace-nowrap border-b border-outline-variant/30 mb-12 reveal lg:justify-center justify-start" id="solutions-tabs">
             {% for tab in switcher.tabs %}
-            <button class="px-6 md:px-8 py-4 font-button text-[15px] md:text-button {% if loop.first %}tab-active{% else %}tab-inactive{% endif %} border-b-2 font-bold transition-all duration-300" id="btn-{{ tab.id }}" onclick="switchTab('{{ tab.id }}')">{{ tab.name }}</button>
+            <button class="px-6 md:px-8 py-4 font-button text-[15px] md:text-button {% if loop.first %}tab-active{% else %}tab-inactive{% endif %} border-b-2 font-bold transition-all duration-300 flex-shrink-0" id="btn-{{ tab.id }}" onclick="switchTab('{{ tab.id }}')">{{ tab.name }}</button>
             {% endfor %}
         </div>
 
