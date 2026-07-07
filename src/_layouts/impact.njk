@@ -1,0 +1,96 @@
+---
+layout: "base.njk"
+---
+<main class="pt-[72px] md:pt-[80px]">
+
+    <!-- Hero Section -->
+    <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-16 reveal">
+        <div class="relative w-full h-[40vh] md:h-[50vh] rounded-2xl overflow-hidden shadow-lg border border-outline-variant/30">
+            <img alt="{{ title }} Hero Image" class="absolute inset-0 w-full h-full object-cover" src="{{ hero.image }}"/>
+            <div class="absolute inset-0 bg-slate-deep/60 flex items-center justify-center p-6 md:p-8">
+                <div class="text-center max-w-3xl">
+                    <h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-pure-white drop-shadow-md mb-4 leading-tight">
+                        {{ hero.title }}
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-secondary-fixed-dim/90 drop-shadow-sm">
+                        {{ hero.subtitle }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-20 reveal">
+        <div class="bg-surface-container-lowest rounded-2xl p-8 md:p-12 border border-surface-variant shadow-[0px_4px_20px_rgba(50,64,89,0.03)] text-center max-w-4xl mx-auto">
+            <span class="material-symbols-outlined text-primary text-5xl mb-4 block" style="font-variation-settings: 'FILL' 1;">eco</span>
+            <h2 class="font-headline-lg text-headline-lg text-slate-deep mb-6">{{ intro.heading }}</h2>
+            <p class="font-body-lg text-body-lg text-secondary leading-relaxed">
+                {{ intro.body }}
+            </p>
+        </div>
+    </section>
+
+    <!-- Key Pillars Section -->
+    <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24">
+        <div class="mb-16 text-center reveal">
+            <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-3 block">Our Pillars</span>
+            <h2 class="font-headline-lg text-headline-lg text-slate-deep">{{ pillars.title }}</h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+            {% for pillar in pillars.list %}
+            <div class="bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(50,64,89,0.05)] border border-outline-variant/30 hover-scale overflow-hidden reveal flex flex-col h-full spotlight-card p-8">
+                <!-- Icon badge -->
+                <div class="w-12 h-12 rounded-xl {{ pillar.badge_bg }} flex items-center justify-center mb-6 shadow-sm flex-shrink-0">
+                    <span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">{{ pillar.icon }}</span>
+                </div>
+                <!-- Title & Description -->
+                <h3 class="font-headline-md text-headline-md text-slate-deep mb-4 text-[22px] font-bold">{{ pillar.title }}</h3>
+                <p class="font-body-md text-body-md text-secondary mb-6 leading-relaxed">
+                    {{ pillar.description }}
+                </p>
+                <!-- Detailed Points -->
+                {% if pillar.points %}
+                <ul class="space-y-4 font-body-md text-body-md text-on-surface-variant border-t border-outline-variant/20 pt-6 mt-auto">
+                    {% for point in pillar.points %}
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-eco-growth text-[20px] mt-0.5 flex-shrink-0">check_circle</span>
+                        <span class="leading-normal">{{ point }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- SDGs Section -->
+    <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24 reveal">
+        <div class="mb-16 text-center">
+            <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-3 block">Global Alignment</span>
+            <h2 class="font-headline-lg text-headline-lg text-slate-deep">{{ sdgs.title }}</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {% for sdg in sdgs.list %}
+            <div class="bg-surface-container-lowest rounded-2xl border {{ sdg.border_color }} shadow-sm hover-scale p-6 flex flex-col h-full spotlight-card">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="font-mono text-sm font-bold text-slate-deep opacity-60">{{ sdg.goal }}</span>
+                    <div class="w-10 h-10 rounded-lg {{ sdg.color }} flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">{{ sdg.icon }}</span>
+                    </div>
+                </div>
+                <h4 class="font-headline-md text-slate-deep text-lg font-bold mb-3 leading-snug">
+                    {{ sdg.name }}
+                </h4>
+                <p class="font-body-md text-sm text-secondary leading-relaxed flex-grow">
+                    {{ sdg.description }}
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+</main>

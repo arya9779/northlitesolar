@@ -1,0 +1,91 @@
+---
+layout: "base.njk"
+---
+<main class="pt-[72px] md:pt-[80px]">
+
+    <!-- Hero Section -->
+    <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-16 reveal">
+        <div class="relative w-full h-[40vh] md:h-[50vh] rounded-2xl overflow-hidden shadow-lg border border-outline-variant/30">
+            <img alt="{{ title }} Hero Image" class="absolute inset-0 w-full h-full object-cover" src="{{ hero.image }}"/>
+            <div class="absolute inset-0 bg-slate-deep/60 flex items-center justify-center p-6 md:p-8">
+                <div class="text-center max-w-3xl">
+                    <h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-pure-white drop-shadow-md mb-4 leading-tight">
+                        {{ hero.title }}
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-secondary-fixed-dim/90 drop-shadow-sm">
+                        {{ hero.subtitle }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Mission Block -->
+    <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-20 reveal">
+        <div class="bg-surface-container-lowest rounded-2xl p-8 md:p-12 border border-surface-variant shadow-[0px_4px_20px_rgba(50,64,89,0.03)] text-center max-w-4xl mx-auto">
+            <span class="material-symbols-outlined text-primary text-5xl mb-4 block" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+            <h2 class="font-headline-lg text-headline-lg text-slate-deep mb-6">{{ intro.heading }}</h2>
+            <p class="font-body-lg text-body-lg text-secondary leading-relaxed">
+                {{ intro.body }}
+            </p>
+        </div>
+    </section>
+
+    <!-- Philanthropic Initiatives Section -->
+    <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24">
+        <div class="mb-16 text-center reveal">
+            <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-3 block">What We Do</span>
+            <h2 class="font-headline-lg text-headline-lg text-slate-deep">{{ initiatives.title }}</h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+            {% for item in initiatives.list %}
+            <div class="bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(50,64,89,0.05)] border border-outline-variant/30 hover-scale overflow-hidden reveal flex flex-col h-full spotlight-card p-8">
+                <!-- Icon badge -->
+                <div class="w-12 h-12 rounded-xl {{ item.badge_bg }} flex items-center justify-center mb-6 shadow-sm flex-shrink-0">
+                    <span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">{{ item.icon }}</span>
+                </div>
+                <!-- Title & Description -->
+                <h3 class="font-headline-md text-headline-md text-slate-deep mb-4 text-[22px] font-bold">{{ item.title }}</h3>
+                <p class="font-body-md text-body-md text-secondary mb-6 leading-relaxed">
+                    {{ item.description }}
+                </p>
+                <!-- Detailed Points -->
+                <ul class="space-y-4 font-body-md text-body-md text-on-surface-variant border-t border-outline-variant/20 pt-6 mt-auto">
+                    {% for point in item.points %}
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-eco-growth text-[20px] mt-0.5 flex-shrink-0">check_circle</span>
+                        <span class="leading-normal">{{ point }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Partnership Section -->
+    <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24 reveal">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center bg-pure-white rounded-3xl border border-surface-variant shadow-md overflow-hidden p-8 md:p-12">
+            <!-- Left Info Panel -->
+            <div class="lg:col-span-8">
+                <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-3 block">Collaboration</span>
+                <h3 class="font-headline-lg text-3xl text-slate-deep mb-6 leading-tight">{{ partnership.title }}</h3>
+                <p class="font-body-lg text-body-lg text-secondary leading-relaxed mb-6">
+                    {{ partnership.body }}
+                </p>
+                <p class="font-body-md text-body-md text-secondary italic">
+                    {{ partnership.cta_text }}
+                </p>
+            </div>
+            <!-- Right CTA button -->
+            <div class="lg:col-span-4 flex justify-center lg:justify-end">
+                <a href="mailto:{{ partnership.email }}" class="bg-primary-container text-slate-deep font-button text-button px-8 py-4 rounded-lg hover-scale flex items-center space-x-2 shadow-md btn-magnetic font-bold w-full sm:w-auto text-center justify-center">
+                    <span>Contact the Foundation</span>
+                    <span class="material-symbols-outlined text-[20px]">mail</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>

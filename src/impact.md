@@ -1,38 +1,61 @@
 ---
----
-layout: "page.njk"
+layout: "impact.njk"
 title: "Impact"
+hero:
+  title: "Powering Real Progress"
+  subtitle: "Expanding energy access, reducing carbon footprint, and driving sustainable growth."
+  image: "/assets/images/hero.png"
+intro:
+  heading: "Powering Real Progress"
+  body: "At NorthLite Solar, impact is not a secondary goal, it is our central measure of success. For over 17 years, we have worked to prove that renewable energy can lift communities, support economic growth, and combat climate change. As we enter the United States market, we carry this double commitment: helping American businesses and families reduce their carbon footprint while continuing to expand energy access across West Africa."
+pillars:
+  title: "Key Pillars of Our Impact"
+  list:
+    - title: "Decarbonizing Commercial Operations"
+      icon: "co2"
+      badge_bg: "bg-eco-growth/10 text-eco-growth"
+      description: "We help commercial and industrial enterprises transition away from heavy grid electricity and diesel backup systems."
+      points:
+        - "Carbon Offsets: Our active solar arrays prevent thousands of metric tons of CO₂ emissions annually."
+        - "Operational Health: Replacing diesel generators reduces local noise and air pollution, fostering safer environments for workers."
+        - "Long-Term Savings: Energy savings are reinvested directly into business growth and job creation."
+    - title: "Bringing Stability to Rural Communities"
+      icon: "diversity_3"
+      badge_bg: "bg-primary-container/20 text-primary"
+      description: "In West Africa, we design and install solar solutions where power grids are weak or non-existent."
+      points:
+        - "Clinical Utility: Electrifying healthcare centers ensures vaccine refrigeration, lighting for overnight medical operations, and functioning emergency equipment."
+        - "Agricultural Growth: Solar-powered water pumps allow local farmers to grow crops year-round, bypassing seasonal droughts."
+        - "Off-Grid Franchises: We train local technicians to operate and maintain decentralized microgrids, establishing new circular energy economies."
+    - title: "Connecting the Diaspora"
+      icon: "flight_takeoff"
+      badge_bg: "bg-tertiary-fixed-dim/20 text-tertiary"
+      description: "We provide a trusted bridge for the Ghanaian diaspora living in the United States to purchase and install clean, high-performance solar installations for their families, businesses, and community buildings back home in Ghana. This channels US-earned capital directly into sustainable local infrastructure."
+sdgs:
+  title: "Sustainable Development Goals (SDGs) We Support"
+  list:
+    - goal: "SDG 7"
+      name: "Affordable & Clean Energy"
+      icon: "solar_power"
+      color: "bg-[#FFEB3B]/10 text-[#F57F17]"
+      border_color: "border-[#FFEB3B]/30"
+      description: "Expanding solar capacity and energy storage solutions across continents."
+    - goal: "SDG 8"
+      name: "Decent Work & Economic Growth"
+      icon: "trending_up"
+      color: "bg-[#A1887F]/10 text-[#5D4037]"
+      border_color: "border-[#A1887F]/30"
+      description: "Training local workforces in engineering, installation, and field O&M services."
+    - goal: "SDG 11"
+      name: "Sustainable Cities & Communities"
+      icon: "location_city"
+      color: "bg-[#FF9800]/10 text-[#E65100]"
+      border_color: "border-[#FF9800]/30"
+      description: "Designing robust, distributed grid systems to reduce municipal energy vulnerabilities."
+    - goal: "SDG 13"
+      name: "Climate Action"
+      icon: "eco"
+      color: "bg-[#4CAF50]/10 text-[#1B5E20]"
+      border_color: "border-[#4CAF50]/30"
+      description: "Partnering with industries to accelerate the global transition to Net-Zero emissions."
 ---
-
-<img src="/assets/images/hero.png" alt="Impact Hero" class="w-full h-[40vh] object-cover rounded-xl mb-8 shadow-md">
-
-## Powering Real Progress
-
-At NorthLite Solar, impact is not a secondary goal, it is our central measure of success. For over 17 years, we have worked to prove that renewable energy can lift communities, support economic growth, and combat climate change. As we enter the United States market, we carry this double commitment: helping American businesses and families reduce their carbon footprint while continuing to expand energy access across West Africa.
-
----
-
-### Key Pillars of Our Impact
-
-#### 1. Decarbonizing Commercial Operations
-We help commercial and industrial enterprises transition away from heavy grid electricity and diesel backup systems.
-*   **Carbon Offsets**: Our active solar arrays prevent thousands of metric tons of CO₂ emissions annually.
-*   **Operational Health**: Replacing diesel generators reduces local noise and air pollution, fostering safer environments for workers and surrounding communities.
-*   **Long-Term Savings**: Energy savings are reinvested directly into business growth and job creation.
-
-#### 2. Bringing Stability to Rural Communities
-In West Africa, we design and install solar solutions where power grids are weak or non-existent.
-*   **Clinical Utility**: Electrifying healthcare centers ensures vaccine refrigeration, lighting for overnight medical operations, and functioning emergency equipment.
-*   **Agricultural Growth**: Solar-powered water pumps allow local farmers to grow crops year-round, bypassing seasonal droughts and securing regional food supplies.
-*   **Off-Grid Franchises**: We train local technicians to operate and maintain decentralized microgrids, establishing new circular energy economies.
-
-#### 3. Connecting the Diaspora
-We provide a trusted bridge for the Ghanaian diaspora living in the United States to purchase and install clean, high-performance solar installations for their families, businesses, and community buildings back home in Ghana. This channels US-earned capital directly into sustainable local infrastructure.
-
----
-
-### Sustainable Development Goals (SDGs) We Support
-*   **SDG 7 (Affordable and Clean Energy)**: Expanding solar capacity and energy storage solutions across continents.
-*   **SDG 8 (Decent Work and Economic Growth)**: Training local workforces in engineering, installation, and field O&M services.
-*   **SDG 11 (Sustainable Cities and Communities)**: Designing robust, distributed grid systems to reduce municipal energy vulnerabilities.
-*   **SDG 13 (Climate Action)**: Partnering with industries to accelerate the global transition to Net-Zero emissions.

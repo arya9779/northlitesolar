@@ -157,6 +157,13 @@ body.has-transparent-header #site-header:not(.scrolled) .brand-logo-img {
   filter: brightness(0) invert(1); /* make logo white on transparent background */
 }
 
+/* Scrolled state or default state for standard pages - invert white logo text to black while preserving color hues */
+#site-header.scrolled .brand-logo-img,
+body:not(.has-transparent-header) #site-header .brand-logo-img,
+#nav-drawer .brand-logo-img {
+  filter: invert(1) hue-rotate(180deg);
+}
+
 body.has-transparent-header #site-header:not(.scrolled) #drawer-open-btn {
   color: white;
 }
