@@ -250,25 +250,176 @@ collections:
         file: "src/impact.md"
         fields:
           - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body Content", name: "body", widget: "markdown"}
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "string"}
+              - {label: "Hero Image", name: "image", widget: "image"}
+          - label: "Intro Section"
+            name: "intro"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Body", name: "body", widget: "text"}
+          - label: "Key Pillars"
+            name: "pillars"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string"}
+              - label: "Pillars List"
+                name: "list"
+                widget: "list"
+                fields:
+                  - {label: "Pillar Title", name: "title", widget: "string"}
+                  - {label: "Icon (e.g. co2)", name: "icon", widget: "string"}
+                  - {label: "Badge CSS Class", name: "badge_bg", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+                  - {label: "Points List", name: "points", widget: "list"}
+          - label: "SDGs Supported"
+            name: "sdgs"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string"}
+              - label: "SDGs List"
+                name: "list"
+                widget: "list"
+                fields:
+                  - {label: "SDG Goal (e.g. SDG 7)", name: "goal", widget: "string"}
+                  - {label: "SDG Name", name: "name", widget: "string"}
+                  - {label: "Icon (e.g. solar_power)", name: "icon", widget: "string"}
+                  - {label: "Color CSS Class", name: "color", widget: "string"}
+                  - {label: "Border CSS Class", name: "border_color", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
 
       - label: "Foundation Page"
         name: "foundation"
         file: "src/foundation.md"
         fields:
           - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body Content", name: "body", widget: "markdown"}
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "string"}
+              - {label: "Hero Image", name: "image", widget: "image"}
+          - label: "Intro Section"
+            name: "intro"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Body", name: "body", widget: "text"}
+          - label: "Core Initiatives"
+            name: "initiatives"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string"}
+              - label: "Initiatives List"
+                name: "list"
+                widget: "list"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Icon (e.g. school)", name: "icon", widget: "string"}
+                  - {label: "Badge CSS Class", name: "badge_bg", widget: "string"}
+                  - {label: "Description", name: "text", widget: "text"}
+                  - {label: "Points List", name: "points", widget: "list"}
+          - label: "Partnership Settings"
+            name: "partnership"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Body", name: "text", widget: "text"}
+              - {label: "CTA Text", name: "cta_text", widget: "string"}
+              - {label: "Email", name: "email", widget: "string"}
 
       - label: "Events Page"
         name: "events"
         file: "src/events.md"
         fields:
           - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body Content", name: "body", widget: "markdown"}
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "string"}
+              - {label: "Hero Image", name: "image", widget: "image"}
+          - label: "Intro Section"
+            name: "intro"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Body", name: "body", widget: "text"}
+          - label: "Upcoming Events"
+            name: "upcoming_events"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string"}
+              - label: "Events List"
+                name: "list"
+                widget: "list"
+                fields:
+                  - {label: "Event Title", name: "title", widget: "string"}
+                  - {label: "Full Date", name: "date", widget: "string"}
+                  - {label: "Day (e.g. 14)", name: "day", widget: "string"}
+                  - {label: "Month (e.g. OCT)", name: "month", widget: "string"}
+                  - {label: "Location", name: "location", widget: "string"}
+                  - {label: "Focus/Details", name: "focus", widget: "text"}
+                  - {label: "Keynote Speaker", name: "keynote", widget: "string", required: false}
+          - label: "Past Highlights"
+            name: "past_highlights"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string"}
+              - label: "Highlights List"
+                name: "list"
+                widget: "list"
+                fields:
+                  - {label: "Highlight Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+          - label: "CTA Settings"
+            name: "cta"
+            widget: "object"
+            fields:
+              - {label: "CTA Text", name: "text", widget: "string"}
+              - {label: "Email", name: "email", widget: "string"}
 
       - label: "News Page"
         name: "news"
         file: "src/news.md"
         fields:
           - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body Content", name: "body", widget: "markdown"}
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "string"}
+              - {label: "Hero Image", name: "image", widget: "image"}
+          - label: "Intro Section"
+            name: "intro"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Body", name: "body", widget: "text"}
+          - label: "Articles"
+            name: "articles"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string"}
+              - label: "Articles List"
+                name: "list"
+                widget: "list"
+                fields:
+                  - {label: "Article Title", name: "title", widget: "string"}
+                  - {label: "Published Date", name: "published", widget: "string"}
+                  - {label: "Author", name: "author", widget: "string"}
+                  - {label: "Summary", name: "summary", widget: "text"}
+          - label: "CTA Settings"
+            name: "cta"
+            widget: "object"
+            fields:
+              - {label: "CTA Text", name: "text", widget: "string"}
+              - {label: "Email", name: "email", widget: "string"}
