@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: arya9779/northlitesolar
   branch: main
+  base_url: https://northlitesolardemo.vercel.app
+  auth_endpoint: api/auth
 local_backend: true
 
 media_folder: "src/assets/images"
