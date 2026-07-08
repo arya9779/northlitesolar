@@ -222,7 +222,7 @@ layout: "base.njk"
         wrapper.addEventListener('transitionend', handleTransitionEnd);
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
+    function initTabFromUrl() {
         const urlParams = new URLSearchParams(window.location.search);
         const tabParam = urlParams.get('tab');
         const validTabs = ['on-grid', 'off-grid', 'zero-invest', 'commercial'];
@@ -232,5 +232,11 @@ layout: "base.njk"
                 switchTab(tabParam);
             }, 50);
         }
-    });
+    }
+
+    if (document.readyState === 'loading') {
+        window.addEventListener('DOMContentLoaded', initTabFromUrl);
+    } else {
+        initTabFromUrl();
+    }
 </script>
