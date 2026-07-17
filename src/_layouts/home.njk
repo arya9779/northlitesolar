@@ -2,15 +2,11 @@
 layout: "base.njk"
 ---
 
-<!-- Hero Section (Fullscreen 16:9 responsive slideshow) -->
-<section class="relative w-full h-screen min-h-[600px] flex items-center bg-slate-deep overflow-hidden">
-    <!-- Interactive Slideshow Backdrop -->
-    <div id="hero-slideshow" class="absolute inset-0 z-0">
-        {% for bg in hero.bg_images %}
-        <div class="hero-slide opacity-0 {% if loop.first %}active-slide opacity-100{% endif %}">
-            <img alt="Slide {{ loop.index }}" class="w-full h-full object-cover hero-zoom" src="{{ bg.image }}"/>
-        </div>
-        {% endfor %}
+<!-- Hero Section (Fullscreen 16:9 responsive layout) -->
+<section class="relative w-full h-screen min-h-[600px] flex items-center bg-slate-deep overflow-hidden border-b border-outline-variant/20">
+    <!-- Hero Backdrop -->
+    <div class="absolute inset-0 z-0">
+        <img alt="NorthLite Solar Flagship Solar" class="w-full h-full object-cover" src="{{ hero.image }}"/>
         <!-- Vignette & Gradient Overlays for Readability -->
         <div class="absolute inset-0 bg-gradient-to-r from-slate-deep/90 via-slate-deep/50 to-transparent z-10"></div>
         <div class="absolute inset-0 bg-radial-vignette z-10 pointer-events-none"></div>
@@ -18,14 +14,14 @@ layout: "base.njk"
 
     <div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full grid grid-cols-12 gap-gutter pt-20 md:pt-28 pb-12">
         <div class="col-span-12 md:col-span-8 lg:col-span-7 reveal">
-            <h1 class="font-display-lg text-4xl md:text-5xl lg:text-[64px] text-pure-white mb-6 leading-tight">{{ hero.heading }}</h1>
-            <p class="font-body-lg text-body-lg text-secondary-fixed-dim mb-10 max-w-2xl">{{ hero.subheading }}</p>
+            <span class="font-mono text-xs text-primary uppercase tracking-widest mb-3 block">NorthLite Solar //</span>
+            <h1 class="font-display-lg text-4xl md:text-5xl lg:text-[56px] text-pure-white mb-6 leading-tight font-bold tracking-tight">{{ hero.heading }}</h1>
+            <p class="font-body-lg text-body-lg text-secondary-fixed-dim mb-10 max-w-2xl leading-relaxed">{{ hero.subheading }}</p>
             <div class="flex flex-wrap gap-4">
-                <a href="/solutions" class="bg-primary-container text-slate-deep font-button text-button px-8 py-4 rounded-lg hover-scale flex items-center space-x-2 shadow-md btn-magnetic">
-                    <span>Explore Solutions</span>
-                    <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                <a href="/solutions" class="bg-primary text-pure-white font-mono text-xs uppercase tracking-wider px-6 py-3.5 rounded-sm hover:bg-slate-deep transition-all">
+                    Explore Solutions
                 </a>
-                <a href="/contact" class="bg-transparent border-2 border-primary-container text-primary-container font-button text-button px-8 py-4 rounded-lg hover:bg-primary-container/10 transition-colors text-center btn-magnetic">
+                <a href="/contact" class="bg-transparent border border-white/20 text-pure-white font-mono text-xs uppercase tracking-wider px-6 py-3.5 rounded-sm hover:bg-white/10 transition-all">
                     Contact Us
                 </a>
             </div>
@@ -34,95 +30,172 @@ layout: "base.njk"
 </section>
 
 <!-- Our Story Section -->
-<section class="py-20 px-margin-mobile md:px-margin-desktop bg-surface-bright relative z-20 mt-12 mx-margin-mobile md:mx-margin-desktop rounded-2xl reveal">
+<section class="py-20 px-margin-mobile md:px-margin-desktop bg-surface-bright relative z-20 reveal">
     <div class="max-w-container-max mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-                <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-3 block">Our Story</span>
-                <h2 class="font-headline-lg text-headline-lg text-slate-deep mb-6 leading-tight">{{ story.heading }}</h2>
-                <div class="font-body-md text-body-md text-secondary space-y-4">
+                <span class="font-mono text-xs text-primary uppercase tracking-widest mb-3 block">01 // Our Story</span>
+                <h2 class="font-headline-lg text-3xl md:text-headline-lg text-slate-deep mb-6 leading-tight font-bold">{{ story.heading }}</h2>
+                <div class="font-body-md text-body-md text-secondary space-y-4 leading-relaxed">
                     {{ story.body | safe }}
                 </div>
             </div>
-            <div class="relative overflow-hidden rounded-2xl shadow-xl h-[400px]">
-                <img src="/assets/images/IMG_0108-scaled.jpg.jpeg" alt="North Lite Solar Story" class="w-full h-full object-cover">
+            <div class="relative overflow-hidden rounded-sm border border-outline-variant/30 h-[400px]">
+                <img src="/assets/images/homepage.jpg.jpeg" alt="NorthLite Solar Story" class="w-full h-full object-cover">
             </div>
         </div>
     </div>
 </section>
 
-<!-- Why Us Section (Value Pillars) -->
-<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface reveal">
+<!-- Why Us Section (Value Pillars with Spec Grid Overhaul) -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface border-t border-outline-variant/20 reveal">
     <div class="max-w-container-max mx-auto">
-        <div class="text-center mb-16">
-            <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-3 block">Why Choose NorthLite</span>
-            <h2 class="font-headline-lg text-headline-lg text-slate-deep mb-6">{{ why_us.heading }}</h2>
+        <div class="mb-16">
+            <span class="font-mono text-xs text-primary uppercase tracking-widest mb-3 block">02 // Core Competencies</span>
+            <h2 class="font-headline-lg text-3xl md:text-headline-lg text-slate-deep font-bold">{{ why_us.heading }}</h2>
         </div>
         
-        <!-- Value Pillars Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Value Pillars Grid with Technical Spec Sheet Layout -->
+        <div class="tech-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {% for pillar in why_us.pillars %}
-            <div class="bg-pure-white rounded-2xl p-8 border border-surface-variant shadow-sm hover:shadow-md transition-shadow hover-scale flex flex-col justify-start">
-                <div class="w-12 h-12 bg-primary-container/20 rounded-lg flex items-center justify-center text-primary mb-6">
-                    <span class="material-symbols-outlined text-[28px]">{{ pillar.icon }}</span>
+            <div class="tech-grid-cell flex flex-col justify-start">
+                <div class="font-mono text-xs text-primary uppercase tracking-widest mb-6">
+                    [0{{ loop.index }}] // {{ pillar.title }}
                 </div>
-                <h3 class="font-headline-md text-xl text-slate-deep mb-3 font-bold">{{ pillar.title }}</h3>
-                <p class="text-secondary">{{ pillar.description }}</p>
+                <p class="font-body-md text-sm text-secondary leading-relaxed">{{ pillar.description }}</p>
             </div>
             {% endfor %}
         </div>
     </div>
 </section>
 
-<!-- Services Section -->
-<section class="py-20 px-margin-mobile md:px-margin-desktop bg-surface-container-low reveal" id="services">
+<!-- Services Section (Tech Grid Overhaul) -->
+<section class="py-20 px-margin-mobile md:px-margin-desktop bg-surface-container-low border-t border-outline-variant/20 reveal" id="services">
     <div class="max-w-container-max mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="font-headline-lg text-headline-lg text-slate-deep mb-4">Our Solutions</h2>
-            <p class="font-body-md text-body-md text-secondary max-w-2xl mx-auto">Delivering high-efficiency engineering and infrastructure designs across commercial, industrial, and residential sectors.</p>
+        <div class="mb-16">
+            <span class="font-mono text-xs text-primary uppercase tracking-widest mb-3 block">03 // Solar Solutions</span>
+            <h2 class="font-headline-lg text-3xl md:text-headline-lg text-slate-deep font-bold">Our Solutions Portfolio</h2>
+            <p class="font-body-md text-body-md text-secondary max-w-2xl mt-4 leading-relaxed">High-efficiency engineering and infrastructure designs across commercial, industrial, and residential sectors.</p>
         </div>
         
-        <div class="space-y-16">
+        <div class="tech-grid grid grid-cols-1 md:grid-cols-2">
+            <!-- Commercial & Industrial Solar (Highlight Spanning 2 Columns) -->
+            <div class="tech-grid-cell md:col-span-2 flex flex-col lg:flex-row gap-8 justify-between items-start">
+                <div class="max-w-2xl">
+                    <span class="font-mono text-[10px] text-primary uppercase tracking-widest mb-3 block">Service // {{ services[0].tagline }}</span>
+                    <h3 class="font-headline-md text-2xl text-slate-deep mb-4 font-bold">{{ services[0].title }}</h3>
+                    <div class="font-body-md text-sm text-secondary leading-relaxed mb-6">
+                        {{ services[0].description | safe }}
+                    </div>
+                    <a href="/solutions?tab=commercial" class="inline-block bg-primary text-pure-white font-mono text-[10px] uppercase tracking-wider px-4 py-2.5 rounded-sm hover:bg-slate-deep transition-all">Explore Commercial Solutions</a>
+                </div>
+                <div class="h-56 w-full lg:w-96 border border-outline-variant/20 overflow-hidden flex-shrink-0">
+                    <img alt="{{ services[0].title }}" class="w-full h-full object-cover" src="{{ services[0].image }}"/>
+                </div>
+            </div>
+
+            <!-- Other Services Grid Cells -->
             {% for service in services %}
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center {% if loop.index0 % 2 != 0 %}lg:flex-row-reverse{% endif %}">
-                <div class="{% if loop.index0 % 2 != 0 %}lg:order-2{% endif %}">
-                    <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-3 block">{{ service.tagline }}</span>
-                    <h3 class="font-headline-lg text-3xl text-slate-deep mb-6">{{ service.title }}</h3>
-                    <div class="font-body-md text-body-md text-secondary prose max-w-none">
+            {% if not loop.first %}
+            <div class="tech-grid-cell flex flex-col justify-between">
+                <div>
+                    <span class="font-mono text-[10px] text-primary uppercase tracking-widest mb-3 block">Service // {{ service.tagline }}</span>
+                    <h3 class="font-headline-md text-xl text-slate-deep mb-4 font-bold">{{ service.title }}</h3>
+                    <div class="font-body-md text-sm text-secondary leading-relaxed mb-6">
                         {{ service.description | safe }}
                     </div>
                 </div>
                 {% if service.image %}
-                <div class="relative overflow-hidden rounded-2xl group shadow-md h-[400px] {% if loop.index0 % 2 != 0 %}lg:order-1{% endif %} hover-scale">
-                    <img alt="{{ service.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="{{ service.image }}"/>
+                <div class="h-48 w-full border border-outline-variant/20 overflow-hidden mt-4">
+                    <img alt="{{ service.title }}" class="w-full h-full object-cover" src="{{ service.image }}"/>
                 </div>
                 {% else %}
-                <div class="bg-primary-container/10 rounded-2xl h-[400px] flex items-center justify-center {% if loop.index0 % 2 != 0 %}lg:order-1{% endif %}">
-                    <span class="material-symbols-outlined text-6xl text-primary/30">solar_power</span>
+                <div class="h-48 w-full bg-surface-container-low border border-outline-variant/20 flex items-center justify-center mt-4">
+                    <span class="material-symbols-outlined text-4xl text-secondary/30">solar_power</span>
                 </div>
                 {% endif %}
             </div>
+            {% endif %}
             {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- C&I Solar Investment & Yield Analysis Table -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface border-t border-outline-variant/20 reveal">
+    <div class="max-w-container-max mx-auto">
+        <div class="text-center mb-16">
+            <span class="font-mono text-xs text-primary uppercase tracking-widest mb-3 block">Yield & Cost Projections //</span>
+            <h2 class="font-headline-lg text-3xl md:text-headline-lg text-slate-deep mb-4 font-bold">C&I Solar Investment Analysis</h2>
+            <p class="font-body-md text-body-md text-secondary max-w-2xl mx-auto leading-relaxed">A structured technical forecast of standard utility expenses compared to NorthLite Solar's Structured SPV project financing model over a 10-year period.</p>
+        </div>
+
+        <div class="overflow-x-auto border border-outline-variant/30 bg-pure-white rounded-sm">
+            <table class="w-full text-left border-collapse font-mono text-xs">
+                <thead>
+                    <tr class="bg-surface-container-high border-b border-outline-variant/30">
+                        <th class="p-4 font-bold text-slate-deep">Metric Spec</th>
+                        <th class="p-4 font-bold text-slate-deep">Standard Utility Grid</th>
+                        <th class="p-4 font-bold text-slate-deep">NorthLite Solar SPV (40% Savings)</th>
+                        <th class="p-4 font-bold text-slate-deep">Net Project Yield</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-outline-variant/20">
+                    <tr>
+                        <td class="p-4 font-bold text-slate-deep">Average Monthly Bill</td>
+                        <td class="p-4 text-secondary">$20,833</td>
+                        <td class="p-4 text-primary font-bold">$12,500</td>
+                        <td class="p-4 text-eco-growth font-bold">+$8,333 / month</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-bold text-slate-deep">Annual Energy Cost</td>
+                        <td class="p-4 text-secondary">$250,000</td>
+                        <td class="p-4 text-primary font-bold">$150,000</td>
+                        <td class="p-4 text-eco-growth font-bold">+$100,000 / year</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-bold text-slate-deep">10-Year Cumulative Cost</td>
+                        <td class="p-4 text-secondary">$2,500,000</td>
+                        <td class="p-4 text-primary font-bold">$1,500,000</td>
+                        <td class="p-4 text-eco-growth font-bold">+$1,000,000 saved</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-bold text-slate-deep">CO₂ Offset (Annual)</td>
+                        <td class="p-4 text-secondary">0.0 Tons</td>
+                        <td class="p-4 text-primary font-bold">1,000 Tons</td>
+                        <td class="p-4 text-eco-growth font-bold">+1,000 Tons offset</td>
+                    </tr>
+                    <tr class="bg-surface-container-low/50">
+                        <td class="p-4 font-bold text-slate-deep">Capital Expenditure (CapEx)</td>
+                        <td class="p-4 text-secondary">$0</td>
+                        <td class="p-4 text-primary font-bold">$0 (Structured SPV)</td>
+                        <td class="p-4 text-slate-deep font-bold">Zero initial capital required</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="mt-8 flex justify-center">
+            <a href="/contact#contact-form" class="bg-primary text-pure-white font-mono text-xs uppercase tracking-wider px-6 py-3.5 rounded-sm hover:bg-slate-deep transition-all">Secure SPV Financing</a>
         </div>
     </div>
 </section>
 
 <!-- Impact & Foundation Section -->
-<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface reveal">
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface border-t border-outline-variant/20 reveal">
     <div class="max-w-container-max mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="bg-pure-white p-10 rounded-3xl border border-surface-variant shadow-md">
-                <span class="material-symbols-outlined text-eco-growth text-5xl mb-6">eco</span>
-                <h3 class="font-headline-lg text-3xl text-slate-deep mb-4">{{ impact.heading }}</h3>
-                <div class="font-body-md text-secondary prose max-w-none">
+            <div class="bg-pure-white p-10 rounded-sm border border-outline-variant/30">
+                <span class="font-mono text-xs text-primary uppercase tracking-widest mb-3 block">Environmental //</span>
+                <h3 class="font-headline-lg text-2xl text-slate-deep mb-4 font-bold">{{ impact.heading }}</h3>
+                <div class="font-body-md text-sm text-secondary prose max-w-none leading-relaxed">
                     {{ impact.body | safe }}
                 </div>
             </div>
-            <div class="bg-primary-container p-10 rounded-3xl shadow-md text-slate-deep">
-                <span class="material-symbols-outlined text-slate-deep text-5xl mb-6">volunteer_activism</span>
-                <span class="font-label-caps text-sm uppercase tracking-widest mb-2 block font-bold">North Lite Foundation (Future Initiative)</span>
-                <h3 class="font-headline-lg text-3xl mb-4">{{ foundation.heading }}</h3>
-                <div class="font-body-md prose max-w-none prose-p:text-slate-deep prose-li:text-slate-deep">
+            <div class="bg-pure-white p-10 rounded-sm border border-outline-variant/30">
+                <span class="font-mono text-xs text-primary uppercase tracking-widest mb-3 block">NorthLite Foundation //</span>
+                <h3 class="font-headline-lg text-2xl text-slate-deep mb-4 font-bold">{{ foundation.heading }}</h3>
+                <div class="font-body-md text-sm text-secondary prose max-w-none leading-relaxed">
                     {{ foundation.body | safe }}
                 </div>
             </div>
@@ -134,31 +207,32 @@ layout: "base.njk"
 <section class="py-20 px-margin-mobile md:px-margin-desktop bg-slate-deep text-pure-white reveal">
     <div class="max-w-container-max mx-auto">
         <div class="text-center mb-16">
-            <h2 class="font-headline-lg text-headline-lg text-pure-white mb-4">Our Growing Global Presence</h2>
-            <p class="font-body-md text-body-md text-secondary-fixed-dim max-w-2xl mx-auto">From Ghana to the United States</p>
+            <span class="font-mono text-xs text-primary-fixed uppercase tracking-widest mb-3 block">Transcontinental Presence //</span>
+            <h2 class="font-headline-lg text-3xl md:text-headline-lg text-pure-white font-bold">Our Global Footprint</h2>
+            <p class="font-body-md text-body-md text-secondary-fixed-dim max-w-2xl mx-auto mt-4 leading-relaxed">Operating as a unified engineering and project financing bridge between America and Africa.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="border border-white/10 p-8 rounded-2xl bg-white/5 backdrop-blur">
-                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                    <img src="https://flagcdn.com/w40/gh.png" alt="Ghana Flag" class="w-8 h-auto rounded-sm"> Ghana
+            <div class="border border-white/10 p-8 rounded-sm bg-white/5 backdrop-blur-sm">
+                <h3 class="text-xl font-mono uppercase tracking-wider mb-6 flex items-center gap-3">
+                    <img src="https://flagcdn.com/w40/gh.png" alt="Ghana Flag" class="w-8 h-auto rounded-sm"> Ghana Operations
                 </h3>
-                <ul class="space-y-4 text-white/80">
+                <ul class="space-y-4 text-white/80 font-body-md text-sm">
                     {% for item in footprints.ghana_points %}
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-primary-container text-xl">check_circle</span>
+                    <li class="flex items-start gap-3 leading-relaxed">
+                        <span class="material-symbols-outlined text-primary-fixed text-lg mt-0.5">check_circle</span>
                         {{ item }}
                     </li>
                     {% endfor %}
                 </ul>
             </div>
-            <div class="border border-white/10 p-8 rounded-2xl bg-white/5 backdrop-blur">
-                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                    <img src="https://flagcdn.com/w40/us.png" alt="US Flag" class="w-8 h-auto rounded-sm"> United States
+            <div class="border border-white/10 p-8 rounded-sm bg-white/5 backdrop-blur-sm">
+                <h3 class="text-xl font-mono uppercase tracking-wider mb-6 flex items-center gap-3">
+                    <img src="https://flagcdn.com/w40/us.png" alt="US Flag" class="w-8 h-auto rounded-sm"> United States HQ
                 </h3>
-                <ul class="space-y-4 text-white/80">
+                <ul class="space-y-4 text-white/80 font-body-md text-sm">
                     {% for item in footprints.us_points %}
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-primary-container text-xl">check_circle</span>
+                    <li class="flex items-start gap-3 leading-relaxed">
+                        <span class="material-symbols-outlined text-primary-fixed text-lg mt-0.5">check_circle</span>
                         {{ item }}
                     </li>
                     {% endfor %}
@@ -169,18 +243,18 @@ layout: "base.njk"
 </section>
 
 <!-- Testimonials Section -->
-<section class="py-20 px-margin-mobile md:px-margin-desktop bg-surface reveal">
+<section class="py-20 px-margin-mobile md:px-margin-desktop bg-surface border-t border-outline-variant/20 reveal">
     <div class="max-w-container-max mx-auto">
         <div class="text-center mb-16">
-            <h2 class="font-headline-lg text-headline-lg text-slate-deep mb-4">Trusted Through Experience</h2>
+            <span class="font-mono text-xs text-primary uppercase tracking-widest mb-3 block">04 // Verification</span>
+            <h2 class="font-headline-lg text-3xl md:text-headline-lg text-slate-deep font-bold">Trusted Engineering</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             {% for review in testimonials %}
-            <div class="bg-white p-8 rounded-2xl border border-surface-variant shadow-sm relative">
-                <span class="material-symbols-outlined text-6xl text-primary/10 absolute top-4 left-4">format_quote</span>
-                <p class="text-lg text-slate-deep italic relative z-10 font-medium leading-relaxed">"{{ review.quote }}"</p>
+            <div class="bg-white p-8 rounded-sm border border-outline-variant/30 relative">
+                <p class="text-base text-slate-deep italic leading-relaxed">"{{ review.quote }}"</p>
                 {% if review.author %}
-                <p class="mt-4 font-bold text-primary">{{ review.author }}</p>
+                <p class="mt-4 font-mono text-xs uppercase tracking-wider text-primary font-bold">— {{ review.author }}</p>
                 {% endif %}
             </div>
             {% endfor %}
@@ -191,13 +265,13 @@ layout: "base.njk"
 <!-- Final CTA Section -->
 <section class="py-24 px-margin-mobile md:px-margin-desktop bg-primary text-pure-white reveal text-center">
     <div class="max-w-3xl mx-auto">
-        <h2 class="font-headline-lg text-4xl md:text-5xl font-bold mb-6">{{ cta.heading }}</h2>
-        <p class="text-xl mb-10 text-white/90">{{ cta.body }}</p>
+        <h2 class="font-display-lg text-3xl md:text-4xl font-bold mb-6 tracking-tight">{{ cta.heading }}</h2>
+        <p class="text-lg mb-10 text-white/90 leading-relaxed">{{ cta.body }}</p>
         <div class="flex flex-wrap justify-center gap-4">
-            <a href="/contact" class="bg-slate-deep text-pure-white font-button text-button px-8 py-4 rounded-lg hover-scale shadow-md btn-magnetic">
+            <a href="/contact" class="bg-slate-deep text-pure-white font-mono text-xs uppercase tracking-wider px-6 py-3.5 rounded-sm hover:bg-slate-800 transition-all border border-slate-deep">
                 Contact Us
             </a>
-            <a href="/contact#consultation" class="bg-transparent border-2 border-slate-deep text-slate-deep font-button text-button px-8 py-4 rounded-lg hover:bg-slate-deep hover:text-pure-white transition-colors btn-magnetic">
+            <a href="/contact#consultation" class="bg-transparent border border-white/35 text-pure-white font-mono text-xs uppercase tracking-wider px-6 py-3.5 rounded-sm hover:bg-white/10 transition-all">
                 Book a Consultation
             </a>
         </div>

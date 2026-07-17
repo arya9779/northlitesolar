@@ -10,20 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Initialize Fluid Scroll Effects & Progress Bar
     initScrollEffects();
 
-    // 4. Initialize Solar Panel Project Slideshow (Premium Visual Layout)
+    // 4. Initialize Solar Panel Project Slideshow
     initHeroSlideshow();
-
-    // 5. Initialize Spotlight Cards hover tracking
-    initSpotlightHover();
-
-    // 6. Initialize Magnetic CTA Buttons
-    initMagneticButtons();
-
-    // 7. Initialize Scroll Ticker stats counters
-    initTickers();
-
-    // 8. Initialize Flip Box touch toggle behavior
-    initFlipBox();
 });
 
 // Controls the mobile drawer behavior
@@ -109,21 +97,13 @@ function initScrollReveal() {
     });
 }
 
-// Custom fluid scroll effects, progress indicator, and button glows
+// Custom fluid scroll effects and flat progress indicator
 function initScrollEffects() {
     const header = document.getElementById('site-header');
     const progressBar = document.getElementById('scroll-progress');
-    
-    // Add button glow to main primary action elements
-    const primaryCTAs = document.querySelectorAll('a[href*="contact"], button[type="submit"], a[href*="solutions"]');
-    primaryCTAs.forEach(btn => {
-        if (!btn.classList.contains('bg-transparent')) {
-            btn.classList.add('btn-glow');
-        }
-    });
 
     window.addEventListener('scroll', () => {
-        // 1. Update Scroll Progress Bar (using scaleX on GPU layer to prevent layout reflows)
+        // 1. Update Scroll Progress Bar (using scaleX on GPU layer)
         const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrolledPercent = height > 0 ? (winScroll / height) * 100 : 0;
@@ -148,38 +128,16 @@ function initScrollEffects() {
     }
 }
 
-// 5. Solar Panel Project Slideshow Controller (Premium visual slider)
+// Hero Slideshow Controller (Simplified class cycler)
 function initHeroSlideshow() {
     const slideshow = document.getElementById('hero-slideshow');
     if (!slideshow) return;
 
     const slides = slideshow.querySelectorAll('.hero-slide');
-    const captionTag = document.getElementById('slide-caption-tag');
-    const captionTitle = document.getElementById('slide-caption-title');
-    const indexCurr = document.getElementById('slide-index-curr');
-    const progressBar = document.getElementById('slide-progress-bar');
-
     if (slides.length === 0) return;
-
-    const projectDetails = [
-        { tag: "Project 01 / Infrastructure", title: "NorthLite Solar Commercial Array" },
-        { tag: "Project 02 / Commercial", title: "Akayet Hotel Utility Plant" },
-        { tag: "Project 03 / Industrial", title: "Goldfields MW Grid Integration" },
-        { tag: "Project 04 / Infrastructure", title: "Decentralized Community Micro-Grid" }
-    ];
 
     let currentSlide = 0;
     const slideDuration = 6000; // 6 seconds
-
-    function resetProgressBar() {
-        if (!progressBar) return;
-        progressBar.style.transition = 'none';
-        progressBar.style.width = '0%';
-        // Force reflow to restart transition
-        progressBar.offsetHeight;
-        progressBar.style.transition = `width ${slideDuration}ms linear`;
-        progressBar.style.width = '100%';
-    }
 
     function showSlide(index) {
         slides.forEach((slide, i) => {
@@ -191,19 +149,6 @@ function initHeroSlideshow() {
                 slide.classList.add('opacity-0');
             }
         });
-
-        // Update Captions
-        if (captionTag && projectDetails[index]) {
-            captionTag.textContent = projectDetails[index].tag;
-        }
-        if (captionTitle && projectDetails[index]) {
-            captionTitle.textContent = projectDetails[index].title;
-        }
-        if (indexCurr) {
-            indexCurr.textContent = String(index + 1).padStart(2, '0');
-        }
-
-        resetProgressBar();
     }
 
     // Init first slide
@@ -216,78 +161,3 @@ function initHeroSlideshow() {
     }, slideDuration);
 }
 
-// 6. Spotlight Cards Mouse Glow Tracking
-function initSpotlightHover() {
-    const cards = document.querySelectorAll('.spotlight-card');
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            card.style.setProperty('--mouse-x', `${x}px`);
-            card.style.setProperty('--mouse-y', `${y}px`);
-        });
-    });
-}
-
-// 7. Magnetic CTA Button Cursor Pull
-function initMagneticButtons() {
-    const buttons = document.querySelectorAll('.btn-magnetic');
-    buttons.forEach(btn => {
-        btn.addEventListener('mousemove', (e) => {
-            const rect = btn.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
-        });
-        btn.addEventListener('mouseleave', () => {
-            btn.style.transform = 'translate(0px, 0px)';
-        });
-    });
-}
-
-// 8. Statistics Counter Tick Interpolators
-function initTickers() {
-    const tickers = document.querySelectorAll('.count-ticker');
-    if (tickers.length === 0) return;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = entry.target;
-                const targetVal = parseFloat(target.getAttribute('data-target'));
-                const decimals = parseInt(target.getAttribute('data-decimals') || '0', 10);
-                const duration = 1500;
-                let startTimestamp = null;
-
-                function step(timestamp) {
-                    if (!startTimestamp) startTimestamp = timestamp;
-                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                    const easeProgress = 1 - Math.pow(1 - progress, 4);
-                    const currentVal = easeProgress * targetVal;
-                    target.textContent = currentVal.toFixed(decimals);
-
-                    if (progress < 1) {
-                        window.requestAnimationFrame(step);
-                    } else {
-                        target.textContent = targetVal.toFixed(decimals);
-                    }
-                }
-                window.requestAnimationFrame(step);
-                observer.unobserve(target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    tickers.forEach(t => observer.observe(t));
-}
-
-// 8. Initialize Flip Box touch toggle behavior
-function initFlipBox() {
-    const flipBoxes = document.querySelectorAll('.flip-box');
-    flipBoxes.forEach(box => {
-        box.addEventListener('click', () => {
-            box.classList.toggle('flipped');
-        });
-    });
-}

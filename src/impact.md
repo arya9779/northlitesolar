@@ -4,10 +4,10 @@ title: "Impact"
 hero:
   title: "Powering Real Progress"
   subtitle: "Expanding energy access, reducing carbon footprint, and driving sustainable growth."
-  image: "/assets/images/hero.png"
+  image: "/assets/images/homepage.png"
 intro:
   heading: "Powering Real Progress"
-  body: "At NorthLite Solar, impact is not a secondary goal, it is our central measure of success. For over 17 years, we have worked to prove that renewable energy can lift communities, support economic growth, and combat climate change. As we enter the United States market, we carry this double commitment: helping American businesses and families reduce their carbon footprint while continuing to expand energy access across West Africa."
+  body: "At NorthLite Solar, impact is not a secondary goal, it is our central measure of success. For over 16 years, we have worked to prove that renewable energy can lift communities, support economic growth, and combat climate change. As we enter the United States market, we carry this double commitment: helping American businesses and families reduce their carbon footprint while continuing to expand energy access across West Africa."
 pillars:
   title: "Key Pillars of Our Impact"
   list:

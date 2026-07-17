@@ -4,7 +4,7 @@ title: "Foundation"
 hero:
   title: "NorthLite Foundation"
   subtitle: "Accelerating the energy transition for vulnerable and underserved communities across West Africa."
-  image: "/assets/images/homepage.png"
+  image: "/assets/images/d1ba0c7e-5961-48e8-a714-2032249efd33.jpg.jpeg"
 intro:
   heading: "Empowering Underserved Communities"
   body: "The NorthLite Foundation is the corporate social responsibility and philanthropic arm of NorthLite Solar Limited. Our mission is to accelerate the energy transition where commercial financing models cannot reach, ensuring that the most vulnerable populations benefit from the clean energy revolution. By deploying off-grid solar infrastructure, we aim to solve pressing challenges in water security, healthcare, and education across West Africa."

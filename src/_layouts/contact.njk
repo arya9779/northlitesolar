@@ -1,34 +1,33 @@
 ---
 layout: "base.njk"
 ---
-<main class="pt-[72px] md:pt-[80px]">
+<main class="pt-[72px] md:pt-[80px] bg-background">
 
     <!-- Page Title Header -->
-    <header class="text-center mb-16 max-w-3xl mx-auto reveal">
-        <span class="font-label-caps text-label-caps text-primary uppercase tracking-wider mb-3 block">{{ header.tagline }}</span>
-        <h1 class="font-headline-lg text-headline-lg text-slate-deep mb-4 leading-tight">{{ header.title }}</h1>
-        <p class="font-body-lg text-body-lg text-secondary">{{ header.description }}</p>
+    <header class="text-center mb-16 max-w-3xl mx-auto reveal pt-12">
+        <span class="font-mono text-xs text-primary uppercase tracking-widest mb-3 block">Contact Spec //</span>
+        <h1 class="font-headline-lg text-3xl md:text-headline-lg text-slate-deep mb-4 leading-tight font-bold tracking-tight">{{ header.title }}</h1>
+        <p class="font-body-lg text-body-md text-secondary leading-relaxed">{{ header.description }}</p>
     </header>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24">
         
         <!-- Left Column: Contact info & Office Locations -->
         <div class="lg:col-span-6 flex flex-col gap-8 reveal">
             
             <!-- Main Contacts Info Card -->
-            <div class="glass-card border border-outline-variant/30 bg-surface-container-lowest/70 p-8 rounded-3xl flex flex-col shadow-sm spotlight-card">
-                <h2 class="font-headline-md text-slate-deep text-[20px] font-bold mb-6 flex items-center gap-3">
-                    <span class="material-symbols-outlined text-primary text-[24px]">contact_support</span>
-                    {{ direct_contact.title }}
+            <div class="bg-pure-white border border-outline-variant/30 p-8 rounded-sm">
+                <h2 class="font-mono text-xs text-primary uppercase tracking-widest mb-6 flex items-center gap-2 font-bold">
+                    {{ direct_contact.title }} //
                 </h2>
                 
-                <div class="space-y-6">
+                <div class="space-y-4">
                     {% for item in direct_contact.list %}
-                    <a href="{{ item.link }}" class="group flex items-start p-4 bg-background rounded-2xl border border-outline-variant/20 hover:border-primary/30 transition-all duration-300">
-                        <span class="material-symbols-outlined text-primary text-[26px] mr-4 mt-1 group-hover:scale-110 transition-transform">{{ item.icon }}</span>
+                    <a href="{{ item.link }}" class="group flex items-start p-4 bg-surface hover:bg-surface-container-low rounded-sm border border-outline-variant/20 hover:border-primary transition-all duration-200">
+                        <span class="material-symbols-outlined text-primary text-[24px] mr-4 mt-1">{{ item.icon }}</span>
                         <div>
-                            <span class="block text-[11px] text-secondary uppercase tracking-wider font-mono font-semibold mb-1">{{ item.label }}</span>
-                            <span class="font-headline-md text-slate-deep text-[16px] font-bold group-hover:text-primary transition-colors">{{ item.value }}</span>
+                            <span class="block text-[10px] text-secondary uppercase tracking-widest font-mono mb-1">{{ item.label }}</span>
+                            <span class="font-mono text-xs text-slate-deep font-bold group-hover:text-primary transition-colors">{{ item.value }}</span>
                         </div>
                     </a>
                     {% endfor %}
@@ -36,64 +35,188 @@ layout: "base.njk"
             </div>
 
             <!-- Locations Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {% for loc in locations %}
-                <div class="glass-card border border-outline-variant/30 bg-surface-container-lowest/70 p-6 rounded-2xl flex flex-col gap-2 shadow-sm spotlight-card">
-                    <div class="w-10 h-10 bg-secondary-container rounded-full flex items-center justify-center text-on-tertiary-container mb-2">
-                        <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">{{ loc.icon }}</span>
+            <div>
+                <h3 class="font-mono text-xs text-slate-deep mb-4 uppercase tracking-widest font-bold">// International Offices</h3>
+                <div class="tech-grid grid grid-cols-1 sm:grid-cols-2">
+                    {% for loc in locations %}
+                    <div class="tech-grid-cell flex flex-col gap-2">
+                        <span class="font-mono text-[10px] text-primary uppercase tracking-widest block">// Location: {{ loc.title }}</span>
+                        <p class="font-body-md text-xs text-secondary leading-relaxed">
+                            {{ loc.address | safe }}
+                        </p>
                     </div>
-                    <h3 class="font-button text-button text-slate-deep font-bold">{{ loc.title }}</h3>
-                    <p class="font-body-md text-sm text-secondary leading-relaxed">
-                        {{ loc.address | safe }}
-                    </p>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
 
         <!-- Right Column: Interactive Contact Form -->
         <div class="lg:col-span-6 flex flex-col gap-8 reveal delay-100" id="contact-form">
             <!-- Form container -->
-            <div class="bg-surface-container-lowest border border-outline-variant/40 shadow-sm rounded-3xl p-8 md:p-10 spotlight-card">
-                <h2 class="font-headline-md text-slate-deep text-[20px] font-bold mb-2">{{ form.title }}</h2>
-                <p class="font-body-md text-body-md text-secondary mb-8">{{ form.description }}</p>
+            <div class="bg-pure-white border border-outline-variant/30 rounded-sm p-8 md:p-10">
+                <h2 class="font-headline-md text-xl text-slate-deep font-bold mb-2">{{ form.title }}</h2>
+                <p class="font-body-md text-sm text-secondary mb-8 leading-relaxed">{{ form.description }}</p>
                 
-                <form class="flex flex-col gap-5" id="consultation-form">
+                <form class="flex flex-col gap-5" id="consultation-form" action="https://api.web3forms.com/submit" method="POST">
+                    <!-- Web3Forms Config -->
+                    <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    
                     <div>
                         <label for="form-name" class="sr-only">Full Name</label>
-                        <input class="form-input" id="form-name" placeholder="Full Name" type="text" required/>
+                        <input class="form-input" id="form-name" name="name" placeholder="Full Name" type="text" required/>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label for="form-email" class="sr-only">Email Address</label>
-                            <input class="form-input" id="form-email" placeholder="Email Address" type="email" required/>
+                            <input class="form-input" id="form-email" name="email" placeholder="Email Address" type="email" required/>
                         </div>
                         <div>
                             <label for="form-phone" class="sr-only">Phone Number</label>
-                            <input class="form-input" id="form-phone" placeholder="Phone Number" type="tel" required/>
+                            <input class="form-input" id="form-phone" name="phone" placeholder="Phone Number" type="tel" required/>
                         </div>
                     </div>
                     <div>
                         <label for="form-interest" class="sr-only">Primary Interest</label>
-                        <select class="form-input text-secondary appearance-none cursor-pointer bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23515f79%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_1rem_center] bg-[length:1.2em_1.2em]" id="form-interest" required>
+                        <select class="form-input text-secondary appearance-none cursor-pointer bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23515f79%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_1rem_center] bg-[length:1.2em_1.2em]" id="form-interest" name="interest" required>
                             <option value="" disabled selected>Primary Interest</option>
                             <option value="residential">Residential Solar Solutions</option>
-                            <option value="commercial">Commercial Solar plants</option>
+                            <option value="commercial">Commercial Solar Plants</option>
                             <option value="maintenance">Operations &amp; Maintenance (O&amp;M)</option>
                             <option value="advisory">Consulting &amp; Advisory</option>
                         </select>
                     </div>
                     <div>
                         <label for="form-message" class="sr-only">Message details</label>
-                        <textarea class="form-input resize-none h-32" id="form-message" placeholder="Tell us about your property, average utility bill, or project requirements..." rows="4"></textarea>
+                        <textarea class="form-input resize-none h-32" id="form-message" name="message" placeholder="Tell us about your property, average utility bill, or project requirements..." rows="4"></textarea>
                     </div>
-                    <button class="w-full bg-primary-container text-slate-deep font-button text-button py-4 rounded-lg hover-scale active:scale-95 transition-all duration-300 mt-2 font-bold shadow-md" id="form-submit-btn" type="submit">
-                        {{ form.submit_btn }}
+                    <button class="w-full bg-primary text-pure-white font-mono text-xs uppercase tracking-wider py-3.5 rounded-sm hover:bg-slate-deep transition-all mt-2 flex items-center justify-center gap-2" id="form-submit-btn" type="submit">
+                        <span>{{ form.submit_btn }}</span>
+                        <span id="submit-loader" class="hidden animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></span>
                     </button>
                 </form>
             </div>
         </div>
         
+        <!-- Full-width Cal.com Inline Scheduler -->
+        <div class="lg:col-span-12 bg-pure-white border border-outline-variant/30 rounded-sm p-8 md:p-12 reveal delay-200 mt-8">
+            <span class="font-mono text-xs text-primary uppercase tracking-widest mb-3 block">Meetings //</span>
+            <h2 class="font-headline-md text-2xl text-slate-deep font-bold mb-2">Schedule a Technical Consultation</h2>
+            <p class="font-body-md text-sm text-secondary mb-8 max-w-3xl leading-relaxed">
+                Book a direct 30-minute online calendar meeting with Mr. Frank Akasoba Adabre or our engineering design team to discuss structured finance options, project specifications, or microgrid deployments.
+            </p>
+            
+            <!-- Cal.com embed container -->
+            <div id="cal-booking-embed" class="w-full border border-outline-variant/20 rounded-sm overflow-hidden bg-surface-container-low min-h-[600px]">
+                <div class="text-center py-20">
+                    <p class="font-body-md text-sm text-secondary mb-4">Click below to open our schedule widget directly.</p>
+                    <a href="https://cal.com/YOUR_CAL_COM_USERNAME_HERE/30min" target="_blank" class="inline-block bg-primary text-pure-white font-mono text-xs uppercase tracking-wider px-6 py-3.5 rounded-sm hover:bg-slate-deep transition-all">
+                        Open Booking Page
+                    </a>
+                </div>
+            </div>
+        </div>
+
     </div>
+
+    <!-- Integrations Script Section -->
+    <script type="text/javascript">
+        // 1. Web3Forms AJAX submission handler
+        document.getElementById('consultation-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const submitBtn = document.getElementById('form-submit-btn');
+            const submitLoader = document.getElementById('submit-loader');
+            
+            // Check if key is configured
+            const keyInput = form.querySelector('input[name="access_key"]');
+            if (keyInput.value === 'YOUR_WEB3FORMS_ACCESS_KEY_HERE') {
+                alert('Form Integration: Please configure your Web3Forms access key first.');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitLoader.classList.remove('hidden');
+            submitBtn.querySelector('span').textContent = 'Sending Message...';
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let res = await response.json();
+                if (response.status == 200) {
+                    form.parentElement.innerHTML = `
+                        <div class="text-center py-12">
+                            <span class="material-symbols-outlined text-primary text-5xl mb-4 block" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            <h3 class="font-headline-md text-xl text-slate-deep font-bold mb-2">Message Sent</h3>
+                            <p class="font-body-md text-sm text-secondary leading-relaxed max-w-md mx-auto">
+                                Thank you for contacting NorthLite Solar. Your request has been recorded. Our team will review the details and respond within 24 hours.
+                            </p>
+                        </div>
+                    `;
+                } else {
+                    alert(res.message || "Submission failed. Please check the access key.");
+                    resetSubmitButton();
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                alert("An error occurred. Please try again later.");
+                resetSubmitButton();
+            });
+
+            function resetSubmitButton() {
+                submitBtn.disabled = false;
+                submitLoader.classList.add('hidden');
+                submitBtn.querySelector('span').textContent = '{{ form.submit_btn }}';
+            }
+        });
+
+        // 2. Cal.com embed initialization
+        (function (C, A, L) {
+            _hex = function (x) { return ('0' + x.toString(16)).slice(-2) };
+            _rgb = function (r, g, b) { return '#' + _hex(r) + _hex(g) + _hex(b) };
+            _rgba = function (r, g, b, a) { return _rgb(r, g, b) + _hex(Math.round(a * 255)) };
+            L.y = { config: {} };
+            L.y.config.styles = { branding: { brandColor: "#C28A00" } };
+            L.y.config.ui = { theme: "light" };
+            L.y.config.element = C;
+            C.addEventListener("DOMContentLoaded", function () {
+                var s = A.createElement("script");
+                s.type = "text/javascript";
+                s.src = "https://embed.cal.com/embed/embed.js";
+                A.head.appendChild(s);
+                s.onload = function () {
+                    var cal = L.y.cal = function () { cal.q = cal.q || []; cal.q.push(arguments) };
+                    cal("init", L.y.config);
+                    
+                    // Replace fallback placeholder link and load inline
+                    // Set your real link in place of 'YOUR_CAL_COM_USERNAME_HERE/30min'
+                    cal("inline", {
+                        elementOrSelector: "#cal-booking-embed",
+                        calLink: "YOUR_CAL_COM_USERNAME_HERE/30min",
+                        layout: "month_view",
+                        config: {
+                            theme: "light",
+                            styles: {
+                                branding: {
+                                    brandColor: "#C28A00"
+                                }
+                            }
+                        }
+                    });
+                };
+            });
+        })(window, document, Cal = window.Cal || {});
+    </script>
 
 </main>

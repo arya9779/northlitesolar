@@ -33,7 +33,7 @@ collections:
             fields:
               - {label: "Heading", name: "heading", widget: "string"}
               - {label: "Body", name: "body", widget: "markdown"}
-          - label: "Why North Lite Solar"
+          - label: "Why NorthLite Solar"
             name: "why_us"
             widget: "object"
             fields:

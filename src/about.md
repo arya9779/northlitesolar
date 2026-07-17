@@ -6,21 +6,21 @@ hero:
   image: "/assets/images/ENGINEERING-scaled.jpg.jpeg"
 quote:
   text: "Our mission is not just about installing panels; it's about igniting potential. By delivering reliable energy to every corner of West Africa, we are empowering businesses, saving lives in clinics, and growing sustainable agricultural communities."
-  author: "Frank Adabre Akasoba"
-  role: "CEO, NorthLite Solar Limited"
+  author: "Frank Akasoba Adabre"
+  role: "CEO, NorthLite Solar"
 divisions:
   title: "Specialized Divisions"
   description: "Tailored energy solutions designed by our engineering division to meet the unique challenges of our region."
   list:
     - title: "Off-Grid Franchise"
-      image: "/assets/images/homepage.jpg.jpeg"
+      image: "/assets/images/IMG_0108-scaled.jpg.jpeg"
       icon: "home_work"
       description: "Empowering rural communities with decentralized, reliable micro-grids. We provide complete setup, training, and maintenance for sustainable local energy economies."
       points:
         - "Community Micro-Grids"
         - "Local Technician Training"
     - title: "Agricultural Support"
-      image: "/assets/images/IMG_0108-scaled.jpg.jpeg"
+      image: "/assets/images/img_0108.png"
       icon: "agriculture"
       description: "Driving food security through solar-powered irrigation and processing. Our systems reduce reliance on expensive diesel generators, boosting farm profitability."
       points:
@@ -36,17 +36,17 @@ divisions:
 team:
   tagline: "Meet Our Leaders"
   title: "The Team Behind the Transition"
-  description: "An interdisciplinary team of clean energy engineers, infrastructure specialists, and regional developers working to power West Africa's future."
+  description: "An interdisciplinary team of clean energy engineers, finance specialists, and operational leaders driving sustainable solar solutions across North America and West Africa."
   executives:
-    - name: "Frank Adabre Akasoba"
-      role: "Chief Executive Officer"
+    - name: "Frank Akasoba Adabre"
+      role: "Chief Executive Officer (CEO)"
       image: "/assets/images/team_ceo.png"
-      bio: "A visionary renewable energy expert with nearly two decades of infrastructure engineering and off-grid project deployment experience. Frank leads NorthLite Solar's expansion across West Africa, driving off-grid franchise entrepreneurship and commercial integrations."
+      bio: "A visionary clean energy executive with over 16 years of leadership in alternative energy development, structured project finance, and international business management. Frank directs both NorthLite Solar Inc. (US) and NorthLite Solar Limited (Ghana), guiding transcontinental operations, SPV capital mobilization, and clean-tech transfer."
       linkedin: "https://www.linkedin.com/company/northlite-solar-limited/"
-    - name: "Celina Nyaaba"
-      role: "Managing Partner"
+    - name: "Celina Nyaaba Amoah"
+      role: "Managing Partner & Co-Founder"
       image: "/assets/images/celina.png"
-      bio: "Co-founder and Managing Partner overseeing strategic operations, legal structures, and community partnership frameworks. Celina has pioneered several rural electrification campaigns and women-led energy distribution projects."
+      bio: "Co-founder and Managing Partner overseeing corporate governance, legal frameworks, and community partnership structures. Celina plays a key role in aligning transcontinental operations and ensuring operational compliance and financial oversight across all solar projects."
       linkedin: "https://www.linkedin.com/company/northlite-solar-limited/"
   management:
     - name: "Evans Akelentera Nsopika"

@@ -1,18 +1,18 @@
 ---
 layout: "base.njk"
 ---
-<main class="pt-[72px] md:pt-[80px]">
+<main class="pt-[72px] md:pt-[80px] bg-background">
 
     <!-- Hero Section -->
     <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-16 reveal">
-        <div class="relative w-full h-[40vh] md:h-[50vh] rounded-2xl overflow-hidden shadow-lg border border-outline-variant/30">
+        <div class="relative w-full h-[40vh] md:h-[50vh] rounded-sm overflow-hidden border border-outline-variant/30">
             <img alt="{{ title }} Hero Image" class="absolute inset-0 w-full h-full object-cover" src="{{ hero.image }}"/>
             <div class="absolute inset-0 bg-slate-deep/60 flex items-center justify-center p-6 md:p-8">
                 <div class="text-center max-w-3xl">
-                    <h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-pure-white drop-shadow-md mb-4 leading-tight">
+                    <h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-pure-white mb-4 leading-tight font-bold tracking-tight">
                         {{ hero.title }}
                     </h1>
-                    <p class="font-body-lg text-body-lg text-secondary-fixed-dim/90 drop-shadow-sm">
+                    <p class="font-body-lg text-body-lg text-secondary-fixed-dim/90">
                         {{ hero.subtitle }}
                     </p>
                 </div>
@@ -22,8 +22,8 @@ layout: "base.njk"
 
     <!-- Intro Section -->
     <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-20 reveal">
-        <div class="bg-surface-container-lowest rounded-2xl p-8 md:p-12 border border-surface-variant shadow-[0px_4px_20px_rgba(50,64,89,0.03)] text-center max-w-4xl mx-auto">
-            <h2 class="font-headline-lg text-headline-lg text-slate-deep mb-6">{{ intro.heading }}</h2>
+        <div class="bg-pure-white rounded-sm p-8 md:p-12 border border-outline-variant/30 text-center max-w-4xl mx-auto">
+            <h2 class="font-headline-lg text-headline-lg text-slate-deep mb-6 font-bold">{{ intro.heading }}</h2>
             <p class="font-body-lg text-body-lg text-secondary leading-relaxed">
                 {{ intro.body }}
             </p>
@@ -33,22 +33,22 @@ layout: "base.njk"
     <!-- Upcoming Events Section -->
     <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24">
         <div class="mb-12 text-center reveal">
-            <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-3 block">Join Us</span>
-            <h2 class="font-headline-lg text-headline-lg text-slate-deep">{{ upcoming_events.title }}</h2>
+            <span class="font-mono text-xs text-primary uppercase tracking-widest mb-3 block">Join Us</span>
+            <h2 class="font-headline-lg text-3xl md:text-headline-lg text-slate-deep font-bold">{{ upcoming_events.title }}</h2>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+        <div class="tech-grid grid grid-cols-1 lg:grid-cols-3">
             {% for event in upcoming_events.list %}
-            <div class="bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(50,64,89,0.04)] border border-outline-variant/30 hover-scale overflow-hidden reveal flex flex-col h-full spotlight-card p-8">
+            <div class="tech-grid-cell flex flex-col justify-start">
                 <!-- Date & Info Row -->
                 <div class="flex items-start gap-4 mb-6">
                     <!-- Date Badge -->
-                    <div class="flex flex-col items-center justify-center bg-primary-container text-slate-deep w-16 h-16 rounded-xl flex-shrink-0 font-bold shadow-sm">
+                    <div class="flex flex-col items-center justify-center bg-surface-container-low text-slate-deep w-16 h-16 rounded-sm flex-shrink-0 font-bold border border-outline-variant/20">
                         <span class="font-mono text-xs tracking-wider uppercase opacity-85">{{ event.month }}</span>
                         <span class="font-headline-md text-2xl leading-none mt-0.5">{{ event.day }}</span>
                     </div>
                     <div>
-                        <h3 class="font-headline-md text-slate-deep text-lg md:text-xl font-bold leading-snug group-hover:text-primary transition-colors">
+                        <h3 class="font-headline-md text-slate-deep text-lg font-bold leading-snug">
                             {{ event.title }}
                         </h3>
                     </div>
@@ -64,9 +64,18 @@ layout: "base.njk"
                     <p class="leading-relaxed mt-2 text-on-surface-variant/90">{{ event.focus }}</p>
                     
                     {% if event.keynote %}
-                    <div class="mt-4 p-4 bg-background rounded-xl border border-outline-variant/20">
+                    <div class="mt-4 p-4 bg-surface-container-low rounded-sm border border-outline-variant/20">
                         <span class="block text-[11px] text-secondary uppercase tracking-wider font-mono font-semibold mb-1">Keynote Speaker</span>
                         <p class="text-sm italic text-slate-deep">"{{ event.keynote }}"</p>
+                    </div>
+                    {% endif %}
+                    
+                    {% if event.luma_link %}
+                    <div class="mt-6 pt-4 border-t border-outline-variant/10">
+                        <a href="{{ event.luma_link }}" target="_blank" class="w-full bg-primary text-pure-white font-mono text-xs uppercase tracking-wider py-3 rounded-sm hover:bg-slate-deep transition-all flex items-center justify-center gap-1.5 font-bold">
+                            <span>Register on Luma</span>
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+                        </a>
                     </div>
                     {% endif %}
                 </div>
@@ -78,14 +87,13 @@ layout: "base.njk"
     <!-- Past Highlights Section -->
     <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24 reveal">
         <div class="mb-12">
-            <h3 class="font-headline-md text-slate-deep mb-8 text-[22px] border-b border-outline-variant/30 pb-3 flex items-center gap-2">
-                <span class="w-1.5 h-6 bg-primary-container rounded-full block"></span>
+            <h3 class="font-headline-md text-slate-deep mb-8 text-[22px] border-b border-outline-variant/30 pb-3 flex items-center gap-2 font-bold">
                 {{ past_highlights.title }}
             </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+            <div class="tech-grid grid grid-cols-1 md:grid-cols-2">
                 {% for highlight in past_highlights.list %}
-                <div class="glass-card border border-outline-variant/30 bg-surface-container-lowest/70 p-6 rounded-2xl flex gap-4 shadow-sm hover-scale spotlight-card">
-                    <div class="w-10 h-10 bg-secondary-container rounded-full flex items-center justify-center text-on-tertiary-container flex-shrink-0 mt-1">
+                <div class="tech-grid-cell flex gap-4">
+                    <div class="w-10 h-10 bg-surface-container-low rounded-sm flex items-center justify-center text-primary flex-shrink-0 mt-1 border border-outline-variant/20">
                         <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">history</span>
                     </div>
                     <div>
@@ -102,15 +110,13 @@ layout: "base.njk"
 
     <!-- CTA Section -->
     <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24 reveal">
-        <div class="relative bg-gradient-to-r from-slate-deep to-[#151d2a] text-pure-white rounded-3xl p-8 md:p-12 border border-outline-variant/10 shadow-lg text-center overflow-hidden">
-            <!-- Background Radial Glow -->
-            <div class="absolute inset-0 bg-radial-vignette opacity-20 pointer-events-none"></div>
-            <div class="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
-                <span class="material-symbols-outlined text-primary-container text-5xl mb-6">event_upcoming</span>
+        <div class="relative bg-slate-deep text-pure-white rounded-sm p-8 md:p-12 border border-outline-variant/30 text-center">
+            <div class="max-w-2xl mx-auto flex flex-col items-center">
+                <span class="material-symbols-outlined text-primary-fixed text-5xl mb-6">event_upcoming</span>
                 <p class="font-headline-md text-[20px] md:text-[24px] text-pure-white mb-8 leading-relaxed">
                     {{ cta.text }}
                 </p>
-                <a href="mailto:{{ cta.email }}" class="bg-primary-container text-slate-deep font-button text-button px-8 py-4 rounded-lg hover-scale flex items-center space-x-2 shadow-md btn-magnetic font-bold">
+                <a href="mailto:{{ cta.email }}" class="bg-primary text-pure-white font-mono text-xs uppercase tracking-wider px-8 py-4 rounded-sm hover:bg-slate-800 transition-all flex items-center space-x-2 border border-primary font-bold">
                     <span>Contact Us</span>
                     <span class="material-symbols-outlined text-[20px]">mail</span>
                 </a>
